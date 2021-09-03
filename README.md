@@ -49,7 +49,7 @@ Level Select.
 
 ## Implementation Timeline ##
 
-1) **Labor Day Weekend**: Code out display and visual elements.
+1) **Labor Day Weekend**: Code out HTML and CSS elements.
 2) **Monday**: Create board and card logic.
 3) **Tuesday**: Implement and design levels.
 4) **Wednesday**: Complete implementation of user controls, and interface design. 
@@ -61,3 +61,4 @@ Squash bugs.
 * Additional bonus levels.
 * Display options that change board and card design.
 * Randomly generated levels.
+* Additional animations and sound effects.
