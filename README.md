@@ -15,3 +15,17 @@ board and their hand. Combining a method and argument card will cause the method
 to execute with the argument card passed in. Cards like pop and shift will allow
 players to keep the card that was removed from the board, creating a more unique
 and complicated layer to later levels.
+
+## Functionality and MVPs ##
+
+In **Array-Match**, players will be able to:
+
+1) Revisit any game level previously completed.
+2) Restart any level in which the player made a mistake.
+3) Combine method and argument cards to manipulate the board and solve puzzles.
+4) Receive a score based on how quickly they completed the level.
+
+In addition, this project will include:
+
+1) An instructions guide on how to play the game..
+2) A production README.
