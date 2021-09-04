@@ -1,0 +1,25 @@
+body {
+    background: skyblue;
+}
+
+header {
+    
+}
+
+header > h1 {
+    display: flex;
+    justify-content: center;
+    font-family: 'Lobster', cursive;
+    font-size: 75px;
+    color: royalblue;
+    text-shadow: 3px 3px lightpink;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+body {
+    display: flex;
+    align-items: center;
+
+}
