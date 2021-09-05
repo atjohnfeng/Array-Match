@@ -1,0 +1,17 @@
+parseSolution = function (solution) {
+    console.log(solution);
+}
+
+var levels = {
+
+    tutorial: {
+        instructions: `Manipulate the array to match the solution: [1,1,1].`,
+        boardArray: [1,1],
+        availableCards: ['push', 1],
+        solution: [1,1,1]
+    }
+};
+
+//Will contain initial board Array
+//Will contain available cards
+//Will contain solution
