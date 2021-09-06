@@ -1,18 +1,27 @@
 const canvas = document.getElementById('board');
 const board = canvas.getContext('2d');
 
-let currentLvl = levels.tutorial; //# TODO
-//let completedLvls = [];
+let currentLvl = currentLevel(); //# TODO
+
+function currentLevel(level) {
+    if (!level) {
+        return levels.tutorial;
+    }
+}
 
 function loadLevel(level) { // #TODO
     board.clearRect(0, 0, 10, 10);
     splitBoard();
-    // let arrEls = getArrayEl();
+    let arrEls = getArrayEl();
 }
 
-// function getArrayEl(); {
+function getCurrentBoard() {
+    return currentLvl.boardArr;
+}
 
-// }
+function getSolution() {
+    return currentLvl.solution;
+}
 
 function splitBoard() {
     var gradient = board.createLinearGradient(0, 0, canvas.height, 0);
