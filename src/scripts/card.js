@@ -13,6 +13,7 @@ class Card {
         this.rectangle = rectangle;
         this.textX = textX;
         this.textY = textY;
+        this.selected = false;
     }
 
 }
