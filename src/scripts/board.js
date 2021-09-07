@@ -6,7 +6,7 @@ let cards;
 
 function currentLevel(level) {
     if (!level) {
-        return levels.one;
+        return levels.tutorial;
     }
 }
 
@@ -30,14 +30,6 @@ function fillBoard(level) {
     cards = new Hand(board, level.handFuncs, level.handParams);
     cards.drawButtons();
 }
-
-// function getCurrentBoard() {
-//     return currentLvl.boardArr;
-// }
-
-// function getSolution() {
-//     return currentLvl.solution;
-// }
 
 function splitBoard() {
     var gradient = board.createLinearGradient(0, 0, canvas.height, 0);
@@ -75,19 +67,34 @@ canvas.addEventListener('click', function (event) {
     cards.cardsArray.forEach((card) => {
         if (isInCard(pos, card)) {
             console.log(`Clicked ${card.value}.`);
-            selectCard();
+            selectCard(card);
+            console.log(card.selected);
         } else {
             console.log('Clicked outside of card.');
         }
     });
 }, false);
 
-selectCard() {
-    if (card === card.selected) {
+function selectCard(card) {
+    if (card.selected === true) {
         card.selected = false;
+        clearSelected(card);
     } else {
         card.selected = true;
+        animateSelected(card);
     }
+}
+
+function animateSelected(card) {
+    board.strokeStyle = "black";
+    board.strokeRect(card.rectangle.x-1, card.rectangle.y-1,
+        card.rectangle.width+2, card.rectangle.height+2);
+}
+
+function clearSelected(card) {
+    board.strokeStyle = "#e0ffff";
+    board.strokeRect(card.rectangle.x-1, card.rectangle.y-1,
+        card.rectangle.width+2, card.rectangle.height+2);
 }
 
 loadLevel(currentLvl);
