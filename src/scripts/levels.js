@@ -1,12 +1,8 @@
-parseSolution = function (solution) {
-    console.log(solution);
-}
-
 var levels = {
 
     tutorial: {
         instructions: `Manipulate the array to match the solution: [1,1,1].`,
-        boardArr: [1,1],
+        boardArr: [[1,1]],
         availableCards: ['push', 1],
         solution: [1,1,1]
     }
