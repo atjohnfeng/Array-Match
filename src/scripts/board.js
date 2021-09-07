@@ -57,34 +57,56 @@ function splitBoard() {
     board.stroke();
 }
 
-function grabMousePosition(canvas, event) {
-    let rectangle = canvas.getBoundingClientRect();
-    // console.log(rectangle);
-    // console.log(event);
-    return {
-        x: event.clientX - rectangle.left,
-        y: event.clientY - rectangle.top
-    };
-}
+function relMouseCoords(event) {
+    var totalOffsetX = 0;
+    var totalOffsetY = 0;
+    var canvasX = 0;
+    var canvasY = 0;
+    var currentElement = this;
 
-function isInCard(pos, card) {
-    console.log(pos);
-    console.log(card.rectangle);
-    return pos.x > card.rectangle.x && 
-    pos.x < card.rectangle.x + card.rectangle.width &&
-        pos.y < card.rectangle.y + card.rectangle.height && pos.y > 
-        card.rectangle.y
-}
+    do {
+        totalOffsetX += currentElement.offsetLeft - currentElement.scrollLeft;
+        totalOffsetY += currentElement.offsetTop - currentElement.scrollTop;
+    }
+    while (currentElement = currentElement.offsetParent)
 
-canvas.addEventListener('click', function (event) {
-    let pos = grabMousePosition(canvas, event);
-    cards.cardsArray.forEach((card) => {
-        if (isInCard(pos, card)) {
-            console.log(`Clicked ${card.value}.`);
-        } else {
-            console.log('Clicked outside of card.');
-        }
-    });
-}, false);
+    canvasX = event.pageX - totalOffsetX;
+    canvasY = event.pageY - totalOffsetY;
+    console.log(canvasX, canvasY);
+
+    return { x: canvasX, y: canvasY }
+}
+HTMLCanvasElement.prototype.relMouseCoords = relMouseCoords;
+
+
+// function grabMousePosition(canvas, event) {
+//     let rectangle = canvas.getBoundingClientRect();
+//     // console.log(rectangle);
+//     console.log(event);
+//     return {
+//         x: event.clientX,
+//         y: event.clientY
+//     };
+// }
+
+// function isInCard(pos, card) {
+//     console.log(pos);
+//     // console.log(card.rectangle);
+//     return pos.x > card.rectangle.x && 
+//     pos.x < card.rectangle.x + card.rectangle.width &&
+//         pos.y < card.rectangle.y + card.rectangle.height && pos.y > 
+//         card.rectangle.y
+// }
+
+// canvas.addEventListener('click', function (event) {
+//     let pos = grabMousePosition(canvas, event);
+//     cards.cardsArray.forEach((card) => {
+//         if (isInCard(pos, card)) {
+//             console.log(`Clicked ${card.value}.`);
+//         } else {
+//             console.log('Clicked outside of card.');
+//         }
+//     });
+// }, false);
 
 loadLevel(currentLvl);
