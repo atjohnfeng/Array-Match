@@ -17,7 +17,8 @@ function loadLevel(level) { // #TODO
 }
 
 function fillBoard(level) {
-    level.boardArr.forEach( (row, idx) => {
+    let problem = new Problem(level.boardArr)
+    problem.problemArray.forEach( (row, idx) => {
         for (let i = 0; i < row.length; i++) {
             board.fillStyle = 'skyblue';
             board.fillRect(10 + (i * 80), 10 + (idx * 80), 75, 75);

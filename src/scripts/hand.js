@@ -37,3 +37,7 @@ class Hand {
         board.fillText(card.value, card.textX, card.textY);
     }
 }
+
+
+
+// card.value
