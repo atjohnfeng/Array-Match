@@ -23,8 +23,11 @@ header {
 }
 
 #board {
-    background-color: #ffebcd;
-    border: 3px royalblue;
+    display: absolute;
+    width: 50%;
+    height: 50%;
+    background-color: #e0ffff;
+    border: 3px lightpink;
     border-style: dashed;
 }
 
@@ -35,9 +38,32 @@ header {
 }
 
 div {
-    margin: 10px;
+    margin: 5px;
 }
 
 .nav-bar {
 
+}
+
+#instructions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Lobster', cursive;
+    font-size: 20px;
+    color: lightpink;
+    text-shadow: 1px 1px royalblue;
+    margin: 0px;
+}
+
+
+ul {
+    display: flex;
+    list-style: none;
+    align-content: space-around;
+}
+
+canvas {
+    height: 100%;
+    width: 100%;
 }
