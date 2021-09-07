@@ -2,7 +2,14 @@ const canvas = document.getElementById('board');
 const board = canvas.getContext('2d');
 
 let currentLvl = currentLevel(); //# TODO
-let cards;
+let cards = new Hand(board, currentLvl.handFuncs, currentLvl.handParams);
+
+let problem = null;
+let problemArr = currentLvl.boardArr;
+
+let selectedFunc = null;
+let selectedParams = null;
+let selectedArray = null;
 
 function currentLevel(level) {
     if (!level) {
@@ -10,15 +17,16 @@ function currentLevel(level) {
     }
 }
 
-function loadLevel(level) { // #TODO
-    board.clearRect(0, 0, 10, 10);
+function loadLevel() { // #TODO
+    board.clearRect(0, 0, board.width, board.height);
     splitBoard();
-    fillBoard(currentLevel());
+    problem = new Problem(problemArr);
+    fillBoard(problemArr, currentLvl);
 }
 
-function fillBoard(level) {
-    let problem = new Problem(level.boardArr)
-    problem.problemArray.forEach( (row, idx) => {
+function fillBoard(problemArr) {
+    board.clearRect(0,0,board.width,board.height);
+    problemArr.forEach( (row, idx) => {
         for (let i = 0; i < row.length; i++) {
             board.fillStyle = 'skyblue';
             board.fillRect(10 + (i * 80), 10 + (idx * 80), 75, 75);
@@ -28,9 +36,14 @@ function fillBoard(level) {
             board.fillText(number, 37.5 + (80 * i), 50 + (idx * 80));
         }
     });
-    cards = new Hand(board, level.handFuncs, level.handParams);
     cards.drawButtons();
 }
+
+// function drawCurrentBoard(cards, problem) {
+//     cards.forEach( (card, i) => {
+
+//     })
+// }
 
 function splitBoard() {
     var gradient = board.createLinearGradient(0, 0, canvas.height, 0);
@@ -56,7 +69,6 @@ function grabMousePosition(canvas, event) {
 }
 
 function isInCard(pos, card) {
-    console.log(pos);
     return pos.x > card.rectangle.x && 
     pos.x < card.rectangle.x + card.rectangle.width &&
         pos.y < card.rectangle.y + card.rectangle.height && pos.y > 
@@ -65,25 +77,50 @@ function isInCard(pos, card) {
 
 canvas.addEventListener('click', function (event) {
     let pos = grabMousePosition(canvas, event);
-    cards.cardsArray.forEach((card) => {
+    cards.paramCards.forEach((card) => {
         if (isInCard(pos, card)) {
             console.log(`Clicked ${card.value}.`);
+            console.log(card);
             selectCard(card);
-            console.log(card.selected);
-        } else {
-            console.log('Clicked outside of card.');
+        }
+    });
+    cards.funcCards.forEach((card) => {
+        if (isInCard(pos, card)) {
+            console.log(`Clicked ${card.value}.`);
+            console.log(card);
+            selectCard(card);
         }
     });
 }, false);
+
+function checkMethodCard(card) {
+    return Object.values(FUNCTIONS).includes(card.value);
+}
+
+function checkArgumentCards(card) {
+    return typeof card.value === 'number';
+}
 
 function selectCard(card) {
     if (card.selected === true) {
         card.selected = false;
         clearSelected(card);
+        if (checkMethodCard(card)) {
+            selectedFunc = null;
+        } else if (checkArgumentCards) {
+            selectedParams = null;
+        }
     } else {
         card.selected = true;
         animateSelected(card);
+        if (checkMethodCard(card)) {
+            selectedFunc = card;
+        } else if (checkArgumentCards) {
+            selectedParams = card;
+        }
     }
+    submitMove();
+    fillBoard(problemArr);
 }
 
 function animateSelected(card) {
@@ -98,4 +135,14 @@ function clearSelected(card) {
         card.rectangle.width+2, card.rectangle.height+2);
 }
 
-loadLevel(currentLvl);
+function submitMove() {
+    if (selectedFunc !== null && selectedParams !== null) {
+        switch(selectedFunc.value) {
+            case FUNCTIONS.push: 
+                problemArr[selectedArray].push(selectedParams.value);
+            break;
+        }
+    }
+}
+
+loadLevel();

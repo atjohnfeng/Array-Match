@@ -5,17 +5,19 @@ class Hand {
         this.board = board;
         this.functions = funcs;
         this.parameters = params;
-        this.cardsArray = [];
-    } 
+        this.funcCards = [];
+        this.paramCards = [];
 
-    drawButtons() {
-        this.functions.forEach( (func, i) => {
+        this.instantCards();
+    }
+
+    instantCards() {
+        this.functions.forEach((func, i) => {
             let rectangle = new Rectangle(10 + (55 * i), 320, btnSize, btnSize);
             let textX = 12 + (55 * i);
             let textY = 365;
             let card = new Card(func, rectangle, textX, textY);
-            this.drawCard(card);
-            this.cardsArray.push(card);
+            this.funcCards.push(card);
         });
 
         this.parameters.forEach((param, i) => {
@@ -23,8 +25,17 @@ class Hand {
             let textX = 12 + (55 * i);
             let textY = 425;
             let card = new Card(param, rectangle, textX, textY);
+            this.paramCards.push(card);
+        });
+    }
+
+    drawButtons() {
+        this.funcCards.forEach( (card) => {
             this.drawCard(card);
-            this.cardsArray.push(card);
+        });
+
+        this.paramCards.forEach( (card) => {
+            this.drawCard(card);
         });
     }
 
@@ -37,7 +48,3 @@ class Hand {
         board.fillText(card.value, card.textX, card.textY);
     }
 }
-
-
-
-// card.value
