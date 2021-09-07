@@ -27,8 +27,8 @@ header {
 
 #board {
   display: absolute;
-  width: 50%;
-  height: 50%;
+  width: 600px;
+  height: 450px;
   background-color: #e0ffff;
   border: 3px lightpink;
   border-style: dashed;
@@ -58,10 +58,4 @@ div {
 ul {
   display: flex;
   list-style: none;
-  align-content: space-around;
-}
-
-canvas {
-  height: 100%;
-  width: 100%;
 }
