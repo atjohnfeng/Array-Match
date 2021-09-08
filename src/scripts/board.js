@@ -2,6 +2,7 @@ const canvas = document.getElementById('board');
 const board = canvas.getContext('2d');
 
 let currentLvl = currentLevel(); //# TODO
+let completedLevels = [];
 let cards = new Hand(board, currentLvl.handFuncs, currentLvl.handParams);
 
 let problem = null;
@@ -9,7 +10,7 @@ let problemArr = currentLvl.boardArr;
 
 let selectedFunc = null;
 let selectedParams = null;
-let selectedArray = null;
+let selectedArray = 0; //TODO
 
 function currentLevel(level) {
     if (!level) {
@@ -17,11 +18,20 @@ function currentLevel(level) {
     }
 }
 
+function nextLevel(currentLvl) {
+    switch(currentLvl) {
+        case levels.tutorial:
+            return levels.one;
+        case levels.one:
+            return levels.two;
+    }
+}
+
 function loadLevel() { // #TODO
     board.clearRect(0, 0, board.width, board.height);
     splitBoard();
     problem = new Problem(problemArr);
-    fillBoard(problemArr, currentLvl);
+    fillBoard(problemArr);
 }
 
 function fillBoard(problemArr) {
@@ -38,12 +48,6 @@ function fillBoard(problemArr) {
     });
     cards.drawButtons();
 }
-
-// function drawCurrentBoard(cards, problem) {
-//     cards.forEach( (card, i) => {
-
-//     })
-// }
 
 function splitBoard() {
     var gradient = board.createLinearGradient(0, 0, canvas.height, 0);
@@ -79,15 +83,11 @@ canvas.addEventListener('click', function (event) {
     let pos = grabMousePosition(canvas, event);
     cards.paramCards.forEach((card) => {
         if (isInCard(pos, card)) {
-            console.log(`Clicked ${card.value}.`);
-            console.log(card);
             selectCard(card);
         }
     });
     cards.funcCards.forEach((card) => {
         if (isInCard(pos, card)) {
-            console.log(`Clicked ${card.value}.`);
-            console.log(card);
             selectCard(card);
         }
     });
@@ -121,6 +121,9 @@ function selectCard(card) {
     }
     submitMove();
     fillBoard(problemArr);
+    setTimeout(function () {
+        winOrNot();
+    }, 1500);
 }
 
 function animateSelected(card) {
@@ -136,13 +139,39 @@ function clearSelected(card) {
 }
 
 function submitMove() {
-    if (selectedFunc !== null && selectedParams !== null) {
+    if (selectedFunc !== null && selectedParams !== null && 
+        selectedArray !== null && problemArr[selectedArray].length < 7) {
         switch(selectedFunc.value) {
             case FUNCTIONS.push: 
                 problemArr[selectedArray].push(selectedParams.value);
+                clearSelected(selectedFunc);
+                clearSelected(selectedParams);
             break;
         }
     }
+}
+
+function winOrNot() {
+    if (JSON.stringify(problemArr) === JSON.stringify(currentLvl.solution)) {
+        completedLevels.concat(currentLvl);
+        resetParams();
+        loadLevel();
+    }
+}
+
+function resetParams() {
+    currentLvl = nextLevel(currentLvl);
+    cards = new Hand(board, currentLvl.handFuncs, currentLvl.handParams);
+    problemArr = currentLvl.boardArr;
+    console.log(problemArr);
+    fillBoard(problemArr);
+    selectedFunc = null;
+    selectedParams = null;
+    selectedArray = 0; //TODO
+
+    let instrTxt = currentLvl.instructions;
+    let instructions = document.querySelector('#instructions');
+    instructions.innerHTML = instrTxt;
 }
 
 loadLevel();
