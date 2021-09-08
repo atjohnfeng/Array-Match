@@ -74,7 +74,6 @@ function fillBoard(problemArr) {
     let instrTxt = currentLvl.instructions;
     let instructions = document.querySelector('#instructions');
     instructions.innerHTML = instrTxt;
-    console.log(problemArr);
 }
 
 function splitBoard() {
@@ -202,10 +201,17 @@ function restart() {
 }
 
 function restartGame() {
-    alert('This will reset your game progress. Are you sure?');
-    localStorage['currentLevel'] = 'tutorial';
-    currentLvl = levels.tutorial;
-    restart();
+    if (confirm('This will reset your game progress. Are you sure?')) {
+        localStorage['currentLevel'] = 'tutorial';
+        currentLvl = levels.tutorial;
+        restart();
+    }
+}
+
+function getHowToPlay() {
+    // let instrTxt = currentLvl.instructions;
+    // let instructions = document.querySelector('#how-to-play');
+    // instructions.innerHTML = instrTxt;
 }
 
 instantLevel();

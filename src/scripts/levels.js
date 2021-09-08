@@ -1,7 +1,8 @@
 var levels = {
 
     tutorial: {
-        instructions: `Manipulate the array to match the solution: [1,1,1].`,
+        instructions: `TUTORIAL: Manipulate the array to match the solution: 
+        [1,1,1].`,
         boardArr: [[1,1]],
         handFuncs: [FUNCTIONS.push],
         handParams: [1, 0],
@@ -9,7 +10,8 @@ var levels = {
     },
 
     one: {
-        instructions: `Manipulate the array to match the solution: [1,2,3], [].`,
+        instructions: `ONE: Manipulate the array to match the solution: [1,2,3], 
+        [].`,
         boardArr: [[1, 2], [3]],
         handFuncs: [FUNCTIONS.shift, FUNCTIONS.unshift],
         handParams: [0, 1, 2],
@@ -17,7 +19,8 @@ var levels = {
     },
 
     two: {
-        instructions: `Manipulate the array to match the solution: [1,1,1], [1,1,1], [1,1,1].`,
+        instructions: `TWO: Manipulate the array to match the solution: [1,1,1], 
+        [1,1,1], [1,1,1].`,
         boardArr: [[1], [1,1,1], [1,1,1,1]],
         handFuncs: [FUNCTIONS.shift, FUNCTIONS.unshift],
         handParams: [0, 1, 2],

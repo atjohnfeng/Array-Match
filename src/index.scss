@@ -51,13 +51,29 @@ div {
     align-items: center;
     font-family: 'Lobster', cursive;
     font-size: 20px;
-    color: lightpink;
+    color: white;
     text-shadow: 1px 1px royalblue;
     margin: 0px;
 }
 
+#how-to-play {
+    position: absolute;
+    flex: 1;
+}
 
 ul {
     display: flex;
     list-style: none;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+}
+
+a > img {
+    height: 32px;
+    width: auto;
+    margin-top: 1px;
+    margin-right: 8px;
 }
