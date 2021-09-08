@@ -15,8 +15,6 @@ function getCurrentLevel() {
     if (localStorage['currentLevel'] === null) {
         localStorage['currentLevel'] = 'tutorial';
     }
-
-    console.log('CurrentLVL : ' + localStorage['currentLevel']);
     switch (localStorage['currentLevel']) {
         case 'one':
             return levels.one;
@@ -195,13 +193,19 @@ function winOrNot() {
 
 function resetParams() {
     currentLvl = nextLevel(currentLvl);
-    instantLevel();
-    loadLevel();
+    restart();
 }
 
 function restart() {
     instantLevel();
     loadLevel();
+}
+
+function restartGame() {
+    alert('This will reset your game progress. Are you sure?');
+    localStorage['currentLevel'] = 'tutorial';
+    currentLvl = levels.tutorial;
+    restart();
 }
 
 instantLevel();
