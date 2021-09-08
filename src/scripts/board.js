@@ -1,21 +1,36 @@
 const canvas = document.getElementById('board');
 const board = canvas.getContext('2d');
 
-let currentLvl = currentLevel(); //# TODO
+let currentLvl = getCurrentLevel(); //# TODO
 let completedLevels = [];
-let cards = new Hand(board, currentLvl.handFuncs, currentLvl.handParams);
 
+let cards = null;
 let problem = null;
-let problemArr = currentLvl.boardArr;
-
+let problemArr = null;
 let selectedFunc = null;
 let selectedParams = null;
 let selectedArray = 0; //TODO
 
-function currentLevel(level) {
+function getCurrentLevel(level) {
     if (!level) {
         return levels.tutorial;
     }
+}
+
+function instantLevel() {
+    cards = new Hand(board, currentLvl.handFuncs, currentLvl.handParams);
+    problem = null;
+    problemArr = deepDup(currentLvl.boardArr);
+    selectedFunc = null;
+    selectedParams = null;
+    selectedArray = 0; //TODO
+}
+
+function deepDup(boardArray) {
+    var problemArray = boardArray.map(function (sub) {
+        return sub.slice();
+    });
+    return problemArray;
 }
 
 function nextLevel(currentLvl) {
@@ -168,17 +183,14 @@ function winOrNot() {
 
 function resetParams() {
     currentLvl = nextLevel(currentLvl);
-    cards = new Hand(board, currentLvl.handFuncs, currentLvl.handParams);
-    problemArr = currentLvl.boardArr;
-
-    selectedFunc = null;
-    selectedParams = null;
-    selectedArray = 0; //TODO
-
-    let instrTxt = currentLvl.instructions;
-    let instructions = document.querySelector('#instructions');
-    instructions.innerHTML = instrTxt;
+    instantLevel();
     loadLevel();
 }
 
+function restart() {
+    instantLevel();
+    loadLevel();
+}
+
+instantLevel();
 loadLevel();
