@@ -28,14 +28,13 @@ function nextLevel(currentLvl) {
 }
 
 function loadLevel() { // #TODO
-    board.clearRect(0, 0, board.width, board.height);
-    splitBoard();
     problem = new Problem(problemArr);
     fillBoard(problemArr);
 }
 
 function fillBoard(problemArr) {
-    board.clearRect(0,0,board.width,board.height);
+    board.clearRect(0, 0, canvas.width, canvas.height);
+    splitBoard();
     problemArr.forEach( (row, idx) => {
         for (let i = 0; i < row.length; i++) {
             board.fillStyle = 'skyblue';
@@ -47,6 +46,10 @@ function fillBoard(problemArr) {
         }
     });
     cards.drawButtons();
+    let instrTxt = currentLvl.instructions;
+    let instructions = document.querySelector('#instructions');
+    instructions.innerHTML = instrTxt;
+    console.log(problemArr);
 }
 
 function splitBoard() {
@@ -113,6 +116,7 @@ function selectCard(card) {
     } else {
         card.selected = true;
         animateSelected(card);
+        console.log(card);
         if (checkMethodCard(card)) {
             selectedFunc = card;
         } else if (checkArgumentCards) {
@@ -120,7 +124,6 @@ function selectCard(card) {
         }
     }
     submitMove();
-    fillBoard(problemArr);
     setTimeout(function () {
         winOrNot();
     }, 1500);
@@ -144,10 +147,15 @@ function submitMove() {
         switch(selectedFunc.value) {
             case FUNCTIONS.push: 
                 problemArr[selectedArray].push(selectedParams.value);
-                clearSelected(selectedFunc);
-                clearSelected(selectedParams);
+                let funcIdx = cards.funcCards.indexOf(selectedFunc);
+                if (funcIdx !== -1) cards.funcCards.splice(funcIdx, 1);
+                let paramIdx = cards.paramCards.indexOf(selectedParams);
+                if (paramIdx !== -1) cards.paramCards.splice(paramIdx, 1);
+                console.log(cards);
+                fillBoard(problemArr);
             break;
         }
+        fillBoard(problemArr);
     }
 }
 
@@ -155,7 +163,6 @@ function winOrNot() {
     if (JSON.stringify(problemArr) === JSON.stringify(currentLvl.solution)) {
         completedLevels.concat(currentLvl);
         resetParams();
-        loadLevel();
     }
 }
 
@@ -163,8 +170,7 @@ function resetParams() {
     currentLvl = nextLevel(currentLvl);
     cards = new Hand(board, currentLvl.handFuncs, currentLvl.handParams);
     problemArr = currentLvl.boardArr;
-    console.log(problemArr);
-    fillBoard(problemArr);
+
     selectedFunc = null;
     selectedParams = null;
     selectedArray = 0; //TODO
@@ -172,6 +178,7 @@ function resetParams() {
     let instrTxt = currentLvl.instructions;
     let instructions = document.querySelector('#instructions');
     instructions.innerHTML = instrTxt;
+    loadLevel();
 }
 
 loadLevel();

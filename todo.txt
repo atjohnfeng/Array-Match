@@ -1,0 +1,4 @@
+Animation
+Scoring
+Timer
+Reset Hand Position function
