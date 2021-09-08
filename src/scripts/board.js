@@ -11,9 +11,19 @@ let selectedFunc = null;
 let selectedParams = null;
 let selectedArray = 0; //TODO
 
-function getCurrentLevel(level) {
-    if (!level) {
-        return levels.tutorial;
+function getCurrentLevel() {
+    if (localStorage['currentLevel'] === null) {
+        localStorage['currentLevel'] = 'tutorial';
+    }
+
+    console.log('CurrentLVL : ' + localStorage['currentLevel']);
+    switch (localStorage['currentLevel']) {
+        case 'one':
+            return levels.one;
+        case 'two':
+            return levels.two;
+        default:
+            return levels.tutorial;
     }
 }
 
@@ -36,8 +46,10 @@ function deepDup(boardArray) {
 function nextLevel(currentLvl) {
     switch(currentLvl) {
         case levels.tutorial:
+            localStorage['currentLevel'] = 'one';
             return levels.one;
         case levels.one:
+            localStorage['currentLevel'] = 'two';
             return levels.two;
     }
 }
