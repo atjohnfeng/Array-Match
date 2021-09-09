@@ -64,57 +64,57 @@ var levels = {
         solution: [[0, 1, 3, 8]]
     },
 
-    six: {
-        instructions: `Level 0/10: Manipulate the array to match the solution: 
-        [1,1,1].`,
-        boardArr: [[1, 1], []],
-        handFuncs: [FUNCTIONS.push],
-        handParams: [1, 0],
-        solution: [[1, 1, 1], []]
-    },
+    // six: {
+    //     instructions: `Level 0/10: Manipulate the array to match the solution: 
+    //     [1,1,1].`,
+    //     boardArr: [[1, 1], []],
+    //     handFuncs: [FUNCTIONS.push],
+    //     handParams: [1, 0],
+    //     solution: [[1, 1, 1], []]
+    // },
 
-    seven: {
-        instructions: `Level 0/10: Manipulate the array to match the solution: 
-        [1,1,1].`,
-        boardArr: [[1, 1], []],
-        handFuncs: [FUNCTIONS.push],
-        handParams: [1, 0],
-        solution: [[1, 1, 1], []]
-    },
+    // seven: {
+    //     instructions: `Level 0/10: Manipulate the array to match the solution: 
+    //     [1,1,1].`,
+    //     boardArr: [[1, 1], []],
+    //     handFuncs: [FUNCTIONS.push],
+    //     handParams: [1, 0],
+    //     solution: [[1, 1, 1], []]
+    // },
 
-    eight: {
-        instructions: `Level 0/10: Manipulate the array to match the solution: 
-        [1,1,1].`,
-        boardArr: [[1, 1], []],
-        handFuncs: [FUNCTIONS.push],
-        handParams: [1, 0],
-        solution: [[1, 1, 1], []]
-    },
+    // eight: {
+    //     instructions: `Level 0/10: Manipulate the array to match the solution: 
+    //     [1,1,1].`,
+    //     boardArr: [[1, 1], []],
+    //     handFuncs: [FUNCTIONS.push],
+    //     handParams: [1, 0],
+    //     solution: [[1, 1, 1], []]
+    // },
 
-    nine: {
-        instructions: `Level 0/10: Manipulate the array to match the solution: 
-        [1,1,1].`,
-        boardArr: [[1, 1], []],
-        handFuncs: [FUNCTIONS.push],
-        handParams: [1, 0],
-        solution: [[1, 1, 1], []]
-    },
+    // nine: {
+    //     instructions: `Level 0/10: Manipulate the array to match the solution: 
+    //     [1,1,1].`,
+    //     boardArr: [[1, 1], []],
+    //     handFuncs: [FUNCTIONS.push],
+    //     handParams: [1, 0],
+    //     solution: [[1, 1, 1], []]
+    // },
 
-    ten: {
-        instructions: `Level 0/10: Manipulate the array to match the solution: 
-        [1,1,1].`,
-        boardArr: [[1, 1], []],
-        handFuncs: [FUNCTIONS.push],
-        handParams: [1, 0],
-        solution: [[1, 1, 1], []]
-    },
+    // ten: {
+    //     instructions: `Level 0/10: Manipulate the array to match the solution: 
+    //     [1,1,1].`,
+    //     boardArr: [[1, 1], []],
+    //     handFuncs: [FUNCTIONS.push],
+    //     handParams: [1, 0],
+    //     solution: [[1, 1, 1], []]
+    // },
 
-    last: {
-        instructions: `Congratulations on completing ArrayMatch!`,
-        boardArr: [],
-        handFuncs: [],
-        handParams: ['C', 'O', 'N', 'G', 'R', 'A', 'T', 'S'],
-        solution: [[1, 1, 1], []]
-    }
+    // last: {
+    //     instructions: `Congratulations on completing ArrayMatch!`,
+    //     boardArr: [],
+    //     handFuncs: [],
+    //     handParams: ['C', 'O', 'N', 'G', 'R', 'A', 'T', 'S'],
+    //     solution: [[1, 1, 1], []]
+    // }
 
 };
