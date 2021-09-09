@@ -9,7 +9,7 @@ let problem = null;
 let problemArr = null;
 let selectedFunc = null;
 let selectedParams = null;
-let selectedArray = 0; //TODO
+let selectedArr = null;
 
 function getCurrentLevel() {
     if (localStorage['currentLevel'] === null) {
@@ -31,7 +31,7 @@ function instantLevel() {
     problemArr = deepDup(currentLvl.boardArr);
     selectedFunc = null;
     selectedParams = null;
-    selectedArray = 0; //TODO
+    selectedArr = null; //TODO
 }
 
 function deepDup(boardArray) {
@@ -80,7 +80,19 @@ function fillBoard(problemArr) {
     } else {
         funcValue = "[Choose]";
     }
-    board.fillText(`Method: ${funcValue}`, 10, 290)
+    if (!!selectedArr) {
+        arrValue = selectedArr.value;
+    } else {
+        arrValue = "[Choose]";
+    }
+    if (!!selectedParams) {
+        argValue = selectedParams.value;
+    } else {
+        argValue = "[Choose]";
+    }
+    board.fillText(`Method: ${funcValue}`, 10, 290);
+    board.fillText(`Array: ${arrValue}`, 230, 290)
+    board.fillText(`Argument: ${argValue}`, 435, 290)
     cards.drawButtons();
     let instrTxt = currentLvl.instructions;
     let instructions = document.querySelector('#instructions');
@@ -141,15 +153,18 @@ function selectCard(card) {
         // clearSelected(card);
         if (checkMethodCard(card)) {
             selectedFunc = null;
-        } else if (checkArgumentCards) {
-            selectedParams = null;
+        } else if (checkArgumentCards(card)) {
+            if (selectedParams === card) selectedParams = null;
+            if (selectedArr === card) selectedArr = null;
         }
     } else {
         card.selected = true;
         // animateSelected(card);
         if (checkMethodCard(card)) {
-            selectedFunc = card;
-        } else if (checkArgumentCards) {
+            selectedFunc = card; 
+        } else if (checkArgumentCards(card) && selectedArr === null) {
+            selectedArr = card;
+        } else if (checkArgumentCards(card) && selectedParams === null) {
             selectedParams = card;
         }
     }
@@ -157,7 +172,7 @@ function selectCard(card) {
     fillBoard(problemArr);
     setTimeout(function () {
         winOrNot();
-    }, 1500);
+    }, 2000);
 }
 
 function animateSelected(card) {
@@ -174,15 +189,17 @@ function animateSelected(card) {
 
 function submitMove() {
     if (selectedFunc !== null && selectedParams !== null && 
-        selectedArray !== null && problemArr[selectedArray].length < 7) {
+        selectedArr !== null) {
         switch(selectedFunc.value) {
             case FUNCTIONS.push: 
-                problemArr[selectedArray].push(selectedParams.value);
+                problemArr[selectedArr.value].push(selectedParams.value);
                 let funcIdx = cards.funcCards.indexOf(selectedFunc);
                 if (funcIdx !== -1) cards.funcCards.splice(funcIdx, 1);
                 let paramIdx = cards.paramCards.indexOf(selectedParams);
                 if (paramIdx !== -1) cards.paramCards.splice(paramIdx, 1);
-                console.log(cards);
+                let arrIdx = cards.paramCards.indexOf(selectedArr);
+                if (arrIdx !== -1) cards.paramCards.splice(arrIdx, 1);
+                resetValues();
                 fillBoard(problemArr);
             break;
         }
@@ -213,6 +230,12 @@ function restartGame() {
         currentLvl = levels.tutorial;
         restart();
     }
+}
+
+function resetValues() {
+    selectedParams = null;
+    selectedArr = null;
+    selectedFunc = null;
 }
 
 function getHowToPlay() {

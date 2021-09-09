@@ -3,10 +3,10 @@ var levels = {
     tutorial: {
         instructions: `TUTORIAL: Manipulate the array to match the solution: 
         [1,1,1].`,
-        boardArr: [[1,1]],
+        boardArr: [[1,1],[]],
         handFuncs: [FUNCTIONS.push],
         handParams: [1, 0],
-        solution: [[1,1,1]]
+        solution: [[1,1,1],[]]
     },
 
     one: {

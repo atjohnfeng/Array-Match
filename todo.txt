@@ -2,3 +2,5 @@ Animation
 Scoring
 Timer
 Reset Hand Position function
+Next level indication
+You failed indication
