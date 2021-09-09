@@ -34,7 +34,6 @@ function loadLevel() {
 }
 
 function splitBoard() {
-
     board.beginPath();
     board.strokeStyle = "skyblue";
     board.setLineDash([]);

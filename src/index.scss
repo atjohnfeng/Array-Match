@@ -76,5 +76,23 @@ a > img {
 }
 
 header ul li {
-    margin-right: 25px;
+    margin-right: 5px;
+}
+
+button {
+    background-color: skyblue;
+    text-shadow: 1px 1px royalblue;
+    font-family: 'Lobster', cursive;
+    border: none;
+    color: lightpink;
+    text-align: center;
+    text-decoration: none;
+    margin: 0;
+    font-size: 24px;
+}
+
+button:hover {
+    text-shadow: 1px 1px lightpink;
+    color: royalblue;
+    text-decoration: underline;
 }
