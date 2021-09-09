@@ -7,15 +7,6 @@ const FUNCTIONS = {
 }
 Object.freeze(FUNCTIONS);
 
-/* submitMove(str: methodCard, str[]: argumentCards) { 
-       if methodCard.value === 'shift' {
-           argumentCards.forEach(arg) => {
-            this.shift(arg)
-           }
-       }
-       ...
-}*/
-
 class Rectangle {
     constructor(x, y, width, height) {
         this.x = x;

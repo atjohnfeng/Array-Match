@@ -1,7 +1,7 @@
 const canvas = document.getElementById('board');
 const board = canvas.getContext('2d');
 
-let currentLvl = getCurrentLevel(); //# TODO
+let currentLvl = getCurrentLevel(); 
 let completedLevels = [];
 
 let cards = null;
@@ -64,10 +64,10 @@ function fillBoard(problemArr) {
         for (let i = 0; i < row.length; i++) {
             board.fillStyle = 'skyblue';
             board.fillRect(10 + (i * 80), 10 + (idx * 80), 75, 75);
-            board.font = '24px Helvetica';
-            board.fillStyle = 'royalblue';
+            board.font = 'bold 32px Helvetica';
+            board.fillStyle = 'white';
             let number = row[i];
-            board.fillText(number, 37.5 + (80 * i), 50 + (idx * 80));
+            board.fillText(number, 37.5 + (80 * i), 55 + (idx * 80));
         }
     });
     cards.drawButtons();
@@ -77,13 +77,9 @@ function fillBoard(problemArr) {
 }
 
 function splitBoard() {
-    var gradient = board.createLinearGradient(0, 0, canvas.height, 0);
-    gradient.addColorStop("0", "lightpink");
-    gradient.addColorStop("0.5", "skyblue");
-    gradient.addColorStop("1.0", "royalblue");
 
     board.beginPath();
-    board.strokeStyle = gradient;
+    board.strokeStyle = "lightpink";
     board.setLineDash([]);
     board.lineWidth = 2;
     board.moveTo(0, canvas.height * .6667);
@@ -154,7 +150,7 @@ function selectCard(card) {
 }
 
 function animateSelected(card) {
-    board.strokeStyle = "black";
+    board.strokeStyle = gradient;
     board.strokeRect(card.rectangle.x-1, card.rectangle.y-1,
         card.rectangle.width+2, card.rectangle.height+2);
 }
@@ -209,10 +205,13 @@ function restartGame() {
 }
 
 function getHowToPlay() {
-    // let instrTxt = currentLvl.instructions;
-    // let instructions = document.querySelector('#how-to-play');
-    // instructions.innerHTML = instrTxt;
+    
 }
 
 instantLevel();
 loadLevel();
+
+var gradient = board.createLinearGradient(0, 0, 200, 0);
+    gradient.addColorStop("0", "lightpink");
+    gradient.addColorStop("0.5", "skyblue");
+    gradient.addColorStop("1.0", "royalblue");
