@@ -10,6 +10,8 @@ let problemArr = null;
 let selectedFunc = null;
 let selectedParams = null;
 let selectedArr = null;
+let handFuncs;
+let handParams;
 
 function getCurrentLevel() {
     if (localStorage['currentLevel'] === null) {
@@ -26,19 +28,18 @@ function getCurrentLevel() {
 }
 
 function instantLevel() {
-    cards = new Hand(board, currentLvl.handFuncs, currentLvl.handParams);
     problem = null;
     problemArr = deepDup(currentLvl.boardArr);
+    handFuncs = deepDup(currentLvl.handFuncs);
+    handParams = deepDup(currentLvl.handParams);
+    cards = new Hand(board, handFuncs, handParams);
     selectedFunc = null;
     selectedParams = null;
-    selectedArr = null; //TODO
+    selectedArr = null;
 }
 
-function deepDup(boardArray) {
-    var problemArray = boardArray.map(function (sub) {
-        return sub.slice();
-    });
-    return problemArray;
+function deepDup(arr) {
+    return arr.map((el) => el.constructor.name === 'Array' ? deepDup(el) : el);
 }
 
 function nextLevel(currentLvl) {
@@ -190,23 +191,62 @@ function animateSelected(card) {
 // }
 
 function submitMove() {
+    if (selectedFunc !== null && 
+        (selectedFunc.value === FUNCTIONS.shift || selectedFunc.value === 
+        FUNCTIONS.pop) && selectedArr !== null && selectedParams === null && 
+        selectedArr.value < problemArr.length) {
+            switch(selectedFunc.value) {
+                case FUNCTIONS.shift:
+                    let shifted = problemArr[selectedArr.value].shift();
+                    handParams.push(shifted);
+                    removeCardsForShiftPop();
+                    resetValues();
+                    fillBoard(problemArr);
+                    break;
+
+                case FUNCTIONS.pop:
+                    problemArr[selectedArr.value].pop();
+
+                    break;
+            }
+        }
     if (selectedFunc !== null && selectedParams !== null && 
         selectedArr !== null) {
         switch(selectedFunc.value) {
             case FUNCTIONS.push: 
                 problemArr[selectedArr.value].push(selectedParams.value);
-                let funcIdx = cards.funcCards.indexOf(selectedFunc);
-                if (funcIdx !== -1) cards.funcCards.splice(funcIdx, 1);
-                let paramIdx = cards.paramCards.indexOf(selectedParams);
-                if (paramIdx !== -1) cards.paramCards.splice(paramIdx, 1);
-                let arrIdx = cards.paramCards.indexOf(selectedArr);
-                if (arrIdx !== -1) cards.paramCards.splice(arrIdx, 1);
+                removeCards();
                 resetValues();
                 fillBoard(problemArr);
+            break;
+
+            case FUNCTIONS.unshift:
+
             break;
         }
         fillBoard(problemArr);
     }
+}
+
+function removeSelected() {
+    let funcIdx = handFuncs.indexOf(selectedFunc.value);
+    if (funcIdx !== -1) handFuncs.splice(funcIdx, 1);
+    let arrIdx = handParams.indexOf(selectedArr.value);
+    if (arrIdx !== -1) handParams.splice(arrIdx, 1);
+}
+
+function removeCards() {
+    removeSelected();
+    let paramIdx = handParams.indexOf(selectedParams.value);
+    if (paramIdx !== -1) handParams.splice(paramIdx, 1);
+    cards = new Hand(board, handFuncs,
+        handParams);
+}
+
+function removeCardsForShiftPop() {
+    removeSelected();
+    cards = new Hand(board, handFuncs,
+        handParams);
 }
 
 function winOrNot() {
