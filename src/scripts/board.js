@@ -158,13 +158,15 @@ function selectCard(card) {
             if (selectedArr === card) selectedArr = null;
         }
     } else {
-        card.selected = true;
         // animateSelected(card);
-        if (checkMethodCard(card)) {
+        if (checkMethodCard(card) && selectedFunc === null) {
+            card.selected = true;
             selectedFunc = card; 
         } else if (checkArgumentCards(card) && selectedArr === null) {
+            card.selected = true;
             selectedArr = card;
         } else if (checkArgumentCards(card) && selectedParams === null) {
+            card.selected = true;
             selectedParams = card;
         }
     }
