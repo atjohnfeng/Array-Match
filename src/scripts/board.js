@@ -22,6 +22,8 @@ function getCurrentLevel() {
             return levels.one;
         case 'two':
             return levels.two;
+        case 'three':
+            return levels.three;
         default:
             return levels.tutorial;
     }
@@ -50,6 +52,9 @@ function nextLevel(currentLvl) {
         case levels.one:
             localStorage['currentLevel'] = 'two';
             return levels.two;
+        case levels.two:
+            localStorage['currentLevel'] = 'three';
+            return levels.three;
     }
 }
 
@@ -205,8 +210,18 @@ function submitMove() {
                     break;
 
                 case FUNCTIONS.pop:
-                    problemArr[selectedArr.value].pop();
+                    let popped = problemArr[selectedArr.value].pop();
+                    handParams.push(popped);
+                    removeCardsForShiftPop();
+                    resetValues();
+                    fillBoard(problemArr);
+                    break;
 
+                case FUNCTIONS.sort:
+                    problemArr[selectedArr.value].sort();
+                    removeCardsForShiftPop();
+                    resetValues();
+                    fillBoard(problemArr);
                     break;
             }
         }
@@ -221,7 +236,10 @@ function submitMove() {
             break;
 
             case FUNCTIONS.unshift:
-
+                problemArr[selectedArr.value].unshift(selectedParams.value);
+                removeCards();
+                resetValues();
+                fillBoard(problemArr);
             break;
         }
         fillBoard(problemArr);

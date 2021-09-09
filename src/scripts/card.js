@@ -3,7 +3,7 @@ const FUNCTIONS = {
     unshift: 'unshift',
     pop: 'pop',
     push: 'push',
-    slice: 'slice'
+    sort: 'sort'
 }
 Object.freeze(FUNCTIONS);
 
