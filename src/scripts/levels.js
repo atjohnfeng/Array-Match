@@ -3,10 +3,10 @@ var levels = {
     tutorial: {
         instructions: `Level 0/10: Manipulate the array to match the solution: 
         [1,1,1].`,
-        boardArr: [[1,1],[]],
+        boardArr: [[1,1], []],
         handFuncs: [FUNCTIONS.push],
         handParams: [1, 0],
-        solution: [[1,1,1],[]]
+        solution: [[1,1,1], []]
     },
 
     one: {
@@ -14,7 +14,7 @@ var levels = {
         [].`,
         boardArr: [[1, 2], [3]],
         handFuncs: [FUNCTIONS.shift, FUNCTIONS.push],
-        handParams: [0, 1, 2],
+        handParams: [0, 1],
         solution: [[1, 2, 3], []]
     },
 
@@ -28,12 +28,21 @@ var levels = {
     },
 
     three: {
-        instructions: `Level Three/10: Manipulate the array to match the solution: [1,1,1], 
-        [1,1,1], [1,1,1].`,
+        instructions: `Level Three/10: Manipulate the array to match the 
+        solution: [1, 1, 1], [1, 2, 3], [1, 1, 1].`,
         boardArr: [[1], [3, 2, 1], [1, 1, 1, 1]],
         handFuncs: [FUNCTIONS.shift, FUNCTIONS.unshift, FUNCTIONS.push, FUNCTIONS.sort],
-        handParams: [0, 1, 2],
+        handParams: [0, 0, 1, 1, 2],
         solution: [[1, 1, 1], [1, 2, 3], [1, 1, 1]]
+    },
+
+    four: {
+        instructions: `Level Four/10: Manipulate the array to match the 
+        solution: [1, 2, 3], [1, 2, 3], [1, 2, 5].`,
+        boardArr: [[1, 2, 3], [1, 2, 3], [1, 2]],
+        handFuncs: [FUNCTIONS.sum, FUNCTIONS.sum, FUNCTIONS.sum, FUNCTIONS.push],
+        handParams: [1, 1, 1, 2, 2],
+        solution: [[1, 2, 3], [1, 2, 3], [1, 2, 5]]
     }
 
 };

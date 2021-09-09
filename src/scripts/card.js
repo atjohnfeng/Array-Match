@@ -3,7 +3,10 @@ const FUNCTIONS = {
     unshift: 'unshift',
     pop: 'pop',
     push: 'push',
-    sort: 'sort'
+    sort: 'sort',
+    sum: 'sum',
+    sub: 'sub',
+    mod: 'mod'
 }
 Object.freeze(FUNCTIONS);
 

@@ -13,22 +13,6 @@ let selectedArr = null;
 let handFuncs;
 let handParams;
 
-function getCurrentLevel() {
-    if (localStorage['currentLevel'] === null) {
-        localStorage['currentLevel'] = 'tutorial';
-    }
-    switch (localStorage['currentLevel']) {
-        case 'one':
-            return levels.one;
-        case 'two':
-            return levels.two;
-        case 'three':
-            return levels.three;
-        default:
-            return levels.tutorial;
-    }
-}
-
 function instantLevel() {
     problem = null;
     problemArr = deepDup(currentLvl.boardArr);
@@ -42,20 +26,6 @@ function instantLevel() {
 
 function deepDup(arr) {
     return arr.map((el) => el.constructor.name === 'Array' ? deepDup(el) : el);
-}
-
-function nextLevel(currentLvl) {
-    switch(currentLvl) {
-        case levels.tutorial:
-            localStorage['currentLevel'] = 'one';
-            return levels.one;
-        case levels.one:
-            localStorage['currentLevel'] = 'two';
-            return levels.two;
-        case levels.two:
-            localStorage['currentLevel'] = 'three';
-            return levels.three;
-    }
 }
 
 function loadLevel() { // #TODO
@@ -196,52 +166,72 @@ function animateSelected(card) {
 // }
 
 function submitMove() {
-    if (selectedFunc !== null && 
-        (selectedFunc.value === FUNCTIONS.shift || selectedFunc.value === 
-        FUNCTIONS.pop) && selectedArr !== null && selectedParams === null && 
+    let twoFuncs = [FUNCTIONS.shift, FUNCTIONS.pop, FUNCTIONS.sort];
+
+    if (selectedFunc !== null && twoFuncs.includes(selectedFunc.value) && 
+        selectedArr !== null && selectedParams === null && 
         selectedArr.value < problemArr.length) {
             switch(selectedFunc.value) {
                 case FUNCTIONS.shift:
                     let shifted = problemArr[selectedArr.value].shift();
                     handParams.push(shifted);
-                    removeCardsForShiftPop();
-                    resetValues();
-                    fillBoard(problemArr);
+                    removeResetFill('x');
                     break;
 
                 case FUNCTIONS.pop:
                     let popped = problemArr[selectedArr.value].pop();
                     handParams.push(popped);
-                    removeCardsForShiftPop();
-                    resetValues();
-                    fillBoard(problemArr);
+                    removeResetFill('x');
                     break;
 
                 case FUNCTIONS.sort:
                     problemArr[selectedArr.value].sort();
-                    removeCardsForShiftPop();
-                    resetValues();
-                    fillBoard(problemArr);
+                    removeResetFill('x');
                     break;
             }
         }
+
     if (selectedFunc !== null && selectedParams !== null && 
         selectedArr !== null) {
         switch(selectedFunc.value) {
             case FUNCTIONS.push: 
                 problemArr[selectedArr.value].push(selectedParams.value);
-                removeCards();
-                resetValues();
-                fillBoard(problemArr);
+                removeResetFill('y');
             break;
 
             case FUNCTIONS.unshift:
                 problemArr[selectedArr.value].unshift(selectedParams.value);
-                removeCards();
-                resetValues();
-                fillBoard(problemArr);
+                removeResetFill('y');
+            break;
+
+            case FUNCTIONS.sum:
+                let sum = selectedArr.value + selectedParams.value;
+                handParams.push(sum);
+                removeResetFill('y');
+            break;
+
+            case FUNCTIONS.sub:
+                let sub = selectedArr.value - selectedParams.value;
+                handParams.push(sub);
+                removeResetFill('y');
+            break;
+
+            case FUNCTIONS.mod:
+                removeResetFill('y');
             break;
         }
+        fillBoard(problemArr);
+    }
+}
+
+function removeResetFill(xory) {
+    if (xory === 'y') {
+        removeCards();
+        resetValues();
+        fillBoard(problemArr);
+    } else if (xory === 'x') {
+        removeCardsForShiftPop();
+        resetValues();
         fillBoard(problemArr);
     }
 }
@@ -298,14 +288,45 @@ function resetValues() {
     selectedFunc = null;
 }
 
+
+function getCurrentLevel() {
+    if (localStorage['currentLevel'] === null) {
+        localStorage['currentLevel'] = 'tutorial';
+    }
+    switch (localStorage['currentLevel']) {
+        case 'one':
+            return levels.one;
+        case 'two':
+            return levels.two;
+        case 'three':
+            return levels.three;
+        case 'four':
+            return levels.four;
+        default:
+            return levels.tutorial;
+    }
+}
+
+function nextLevel(currentLvl) {
+    switch (currentLvl) {
+        case levels.tutorial:
+            localStorage['currentLevel'] = 'one';
+            return levels.one;
+        case levels.one:
+            localStorage['currentLevel'] = 'two';
+            return levels.two;
+        case levels.two:
+            localStorage['currentLevel'] = 'three';
+            return levels.three;
+        case levels.three:
+            localStorage['currentLevel'] = 'four';
+            return levels.four;
+    }
+}
+
 function getHowToPlay() {
     
 }
 
 instantLevel();
 loadLevel();
-
-// var gradient = board.createLinearGradient(0, 0, 200, 0);
-//     gradient.addColorStop("0", "lightpink");
-//     gradient.addColorStop("0.5", "skyblue");
-//     gradient.addColorStop("1.0", "royalblue");

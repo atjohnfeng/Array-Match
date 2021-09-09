@@ -1,6 +1,7 @@
-Animation
+Animation + Sounds
+Level index
 Scoring
 Timer
-Reset Hand Position function
 Next level indication
 You failed indication
+You beat all the levels prize!!
