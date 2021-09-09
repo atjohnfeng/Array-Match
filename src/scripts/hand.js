@@ -40,10 +40,11 @@ class Hand {
     }
 
     drawCard(card) {
-        board.fillStyle = "lightpink";
-        board.fillRect(card.rectangle.x, card.rectangle.y, card.rectangle.width, card.rectangle.height);
         board.fillStyle = "royalblue";
-        board.font = '12px Helvetica';
+        board.fillRect(card.rectangle.x, card.rectangle.y, card.rectangle.width, 
+            card.rectangle.height);
+        board.fillStyle = "white";
+        board.font = 'bold 14px Helvetica';
         board.textAlign = "left";
         board.fillText(card.value, card.textX, card.textY);
     }

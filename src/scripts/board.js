@@ -150,7 +150,7 @@ function selectCard(card) {
 }
 
 function animateSelected(card) {
-    board.strokeStyle = gradient;
+    board.strokeStyle = "darkgray";
     board.strokeRect(card.rectangle.x-1, card.rectangle.y-1,
         card.rectangle.width+2, card.rectangle.height+2);
 }
@@ -211,7 +211,7 @@ function getHowToPlay() {
 instantLevel();
 loadLevel();
 
-var gradient = board.createLinearGradient(0, 0, 200, 0);
-    gradient.addColorStop("0", "lightpink");
-    gradient.addColorStop("0.5", "skyblue");
-    gradient.addColorStop("1.0", "royalblue");
+// var gradient = board.createLinearGradient(0, 0, 200, 0);
+//     gradient.addColorStop("0", "lightpink");
+//     gradient.addColorStop("0.5", "skyblue");
+//     gradient.addColorStop("1.0", "royalblue");
