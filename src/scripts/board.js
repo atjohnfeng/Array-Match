@@ -36,9 +36,9 @@ function loadLevel() {
 function splitBoard() {
 
     board.beginPath();
-    board.strokeStyle = "lightpink";
+    board.strokeStyle = "skyblue";
     board.setLineDash([]);
-    board.lineWidth = 2;
+    board.lineWidth = 3;
     board.moveTo(0, canvas.height * .6667);
     board.lineTo(canvas.width, canvas.height * .6667);
     board.stroke();

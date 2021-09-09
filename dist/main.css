@@ -30,8 +30,8 @@ header {
   width: 600px;
   height: 450px;
   background-color: #e0ffff;
-  border: 3px lightpink;
-  border-style: dashed;
+  border-radius: 10px;
+  box-shadow: 5px 5px lightpink;
 }
 
 .game-board {
@@ -68,6 +68,7 @@ ul {
 footer {
   display: flex;
   justify-content: center;
+  margin-top: 10px;
 }
 
 a > img {
@@ -78,5 +79,5 @@ a > img {
 }
 
 header ul li {
-  margin-right: 10px;
+  margin-right: 25px;
 }
