@@ -32,10 +32,16 @@ class Hand {
     drawButtons() {
         this.funcCards.forEach( (card) => {
             this.drawCard(card);
+            if (card.selected) {
+                animateSelected(card) 
+            }
         });
 
         this.paramCards.forEach( (card) => {
             this.drawCard(card);
+            if (card.selected) {
+                animateSelected(card) 
+            }
         });
     }
 

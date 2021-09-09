@@ -70,6 +70,17 @@ function fillBoard(problemArr) {
             board.fillText(number, 37.5 + (80 * i), 55 + (idx * 80));
         }
     });
+    board.font = 'bold 16px Helvetica';
+    board.fillStyle = 'royalblue';
+    let funcValue;
+    let arrValue;
+    let argValue;
+    if (!!selectedFunc) {
+        funcValue = selectedFunc.value;
+    } else {
+        funcValue = "[Choose]";
+    }
+    board.fillText(`Method: ${funcValue}`, 10, 290)
     cards.drawButtons();
     let instrTxt = currentLvl.instructions;
     let instructions = document.querySelector('#instructions');
@@ -127,7 +138,7 @@ function checkArgumentCards(card) {
 function selectCard(card) {
     if (card.selected === true) {
         card.selected = false;
-        clearSelected(card);
+        // clearSelected(card);
         if (checkMethodCard(card)) {
             selectedFunc = null;
         } else if (checkArgumentCards) {
@@ -135,8 +146,7 @@ function selectCard(card) {
         }
     } else {
         card.selected = true;
-        animateSelected(card);
-        console.log(card);
+        // animateSelected(card);
         if (checkMethodCard(card)) {
             selectedFunc = card;
         } else if (checkArgumentCards) {
@@ -144,22 +154,23 @@ function selectCard(card) {
         }
     }
     submitMove();
+    fillBoard(problemArr);
     setTimeout(function () {
         winOrNot();
     }, 1500);
 }
 
 function animateSelected(card) {
-    board.strokeStyle = "darkgray";
+    board.strokeStyle = "black";
     board.strokeRect(card.rectangle.x-1, card.rectangle.y-1,
         card.rectangle.width+2, card.rectangle.height+2);
 }
 
-function clearSelected(card) {
-    board.strokeStyle = "#e0ffff";
-    board.strokeRect(card.rectangle.x-1, card.rectangle.y-1,
-        card.rectangle.width+2, card.rectangle.height+2);
-}
+// function clearSelected(card) {
+//     board.strokeStyle = "#e0ffff";
+//     board.strokeRect(card.rectangle.x-1, card.rectangle.y-1,
+//         card.rectangle.width+2, card.rectangle.height+2);
+// }
 
 function submitMove() {
     if (selectedFunc !== null && selectedParams !== null && 
