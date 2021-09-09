@@ -1,5 +1,6 @@
 Animation + Sounds
 Level index
+Level selector
 Scoring
 Timer
 Next level indication

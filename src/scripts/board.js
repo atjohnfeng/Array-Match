@@ -54,17 +54,17 @@ function fillBoard(problemArr) {
     if (!!selectedFunc) {
         funcValue = selectedFunc.value;
     } else {
-        funcValue = "[Choose]";
+        funcValue = "[Empty]";
     }
     if (!!selectedArr) {
         arrValue = selectedArr.value;
     } else {
-        arrValue = "[Choose]";
+        arrValue = "[Empty]";
     }
     if (!!selectedParams) {
         argValue = selectedParams.value;
     } else {
-        argValue = "[Choose]";
+        argValue = "[Empty]";
     }
     board.fillText(`Method: ${funcValue}`, 10, 290);
     board.fillText(`Array: ${arrValue}`, 230, 290)
@@ -167,6 +167,15 @@ function animateSelected(card) {
 
 function submitMove() {
     let twoFuncs = [FUNCTIONS.shift, FUNCTIONS.pop, FUNCTIONS.sort];
+    if (selectedFunc.value === FUNCTIONS.start) {
+        if (localStorage['currentLevel'] === 'tutorial') {
+            currentLvl = levels.tutorial;
+            restart();
+        } else {
+            currentLvl = getCurrentLevel();
+            restart();
+        }
+    } 
 
     if (selectedFunc !== null && twoFuncs.includes(selectedFunc.value) && 
         selectedArr !== null && selectedParams === null && 
@@ -217,8 +226,17 @@ function submitMove() {
             break;
 
             case FUNCTIONS.mod:
+                let mod = selectedArr.value % selectedParams.value;
+                console.log(mod);
+                handParams.push(mod);
                 removeResetFill('y');
             break;
+
+            case FUNCTIONS.mult:
+                let mult = selectedArr.value * selectedParams.value;
+                handParams.push(mult);
+                removeResetFill('y');
+                break;
         }
         fillBoard(problemArr);
     }
@@ -288,12 +306,13 @@ function resetValues() {
     selectedFunc = null;
 }
 
-
 function getCurrentLevel() {
     if (localStorage['currentLevel'] === null) {
-        localStorage['currentLevel'] = 'tutorial';
+        localStorage['currentLevel'] = 'start';
     }
     switch (localStorage['currentLevel']) {
+        case 'zero':
+            return levels.tutorial;
         case 'one':
             return levels.one;
         case 'two':
@@ -302,13 +321,30 @@ function getCurrentLevel() {
             return levels.three;
         case 'four':
             return levels.four;
+        case 'five':
+            return levels.five;
+        case 'six':
+            return levels.six;
+        case 'seven':
+            return levels.seven;
+        case 'eight':
+            return levels.eight;
+        case 'nine':
+            return levels.nine;
+        case 'ten':
+            return levels.ten;
+        case 'last':
+            return levels.last;
         default:
-            return levels.tutorial;
+            return levels.start;
     }
 }
 
 function nextLevel(currentLvl) {
     switch (currentLvl) {
+        case levels.start:
+            localStorage['currentLevel'] = 'zero';
+            return levels.tutorial;
         case levels.tutorial:
             localStorage['currentLevel'] = 'one';
             return levels.one;
@@ -321,11 +357,37 @@ function nextLevel(currentLvl) {
         case levels.three:
             localStorage['currentLevel'] = 'four';
             return levels.four;
+        case levels.four:
+            localStorage['currentLevel'] = 'five';
+            return levels.five;
+        case levels.five:
+            // localStorage['currentLevel'] = 'six';
+            localStorage['currentLevel'] = 'last';
+            alert(`You've completed all levels!`);
+            return levels.last;
+            // return levels.six;
+        case levels.six:
+            localStorage['currentLevel'] = 'seven';
+            return levels.seven;
+        case levels.seven:
+            localStorage['currentLevel'] = 'eight';
+            return levels.eight;
+        case levels.eight:
+            localStorage['currentLevel'] = 'nine';
+            return levels.nine;
+        case levels.nine:
+            localStorage['currentLevel'] = 'ten';
+            return levels.ten;
+        case levels.ten:
+            localStorage['currentLevel'] = 'ten';
+            alert(`You've completed all levels!`)
+            return levels.last;
     }
 }
 
-function getHowToPlay() {
-    
+function getStart() {
+    currentLvl = levels.start;
+    restart();
 }
 
 instantLevel();

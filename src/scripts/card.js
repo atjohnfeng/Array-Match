@@ -6,7 +6,10 @@ const FUNCTIONS = {
     sort: 'sort',
     sum: 'sum',
     sub: 'sub',
-    mod: 'mod'
+    mod: 'mod',
+    mult: 'mult',
+    playagain: 'play again?',
+    start: 'start'
 }
 Object.freeze(FUNCTIONS);
 
