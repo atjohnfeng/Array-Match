@@ -109,12 +109,12 @@ var levels = {
     //     solution: [[1, 1, 1], []]
     // },
 
-    // last: {
-    //     instructions: `Congratulations on completing ArrayMatch!`,
-    //     boardArr: [],
-    //     handFuncs: [],
-    //     handParams: ['C', 'O', 'N', 'G', 'R', 'A', 'T', 'S'],
-    //     solution: [[1, 1, 1], []]
-    // }
+    last: {
+        instructions: `Congratulations on completing ArrayMatch!`,
+        boardArr: [],
+        handFuncs: [],
+        handParams: ['C', 'O', 'N', 'G', 'R', 'A', 'T', 'S'],
+        solution: [[1, 1, 1], []]
+    }
 
 };

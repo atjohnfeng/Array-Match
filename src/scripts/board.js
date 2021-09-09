@@ -124,7 +124,7 @@ function animateSelected(card) {
 // }
 
 function submitMove() {
-    if (selectedFunc.value === FUNCTIONS.start) {
+    if (selectedFunc !== null && selectedFunc.value === FUNCTIONS.start) {
         if (localStorage['currentLevel'] === 'start') {
             currentLvl = levels.tutorial;
             restart();
