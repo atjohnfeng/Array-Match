@@ -1,3 +1,5 @@
+[ArrayMatch is live here!](https://atjohnfeng.github.io/Array-match/)
+
 # Javascript Project Proposal: Array Match #
 
 ## Background: ##
