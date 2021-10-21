@@ -30,29 +30,60 @@ header {
   width: 600px;
   height: 450px;
   background-color: #e0ffff;
-  border-radius: 10px;
+  border-radius: 16px;
   box-shadow: 5px 5px lightpink;
 }
 
 .game-board {
   display: flex;
+  justify-content: center;
+}
+.game-board .side-info-bar {
+  display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
+  height: 450px;
+  width: 110px;
+  border-radius: 16px;
+  background: royalblue;
+  box-shadow: -5px 5px lightpink;
+  font-family: "Lobster", cursive;
+  font-size: 24px;
+  color: white;
+  text-shadow: 1px 1px black;
+  margin: 0px;
+}
+.game-board .side-info-bar:hover {
+  cursor: default;
+}
+.game-board .side-info-bar .row-num {
+  margin-top: 25px;
 }
 
-div {
-  margin: 5px;
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #instructions {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   font-family: "Lobster", cursive;
   font-size: 20px;
   color: white;
   text-shadow: 1px 1px royalblue;
   margin: 0px;
+  width: 710px;
+  height: 100%;
+  padding-bottom: 5px;
+  border-radius: 16px;
+}
+#instructions:hover {
+  cursor: default;
 }
 
 #how-to-play {

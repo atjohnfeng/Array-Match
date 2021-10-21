@@ -33,11 +33,21 @@
 
 <body>
     
-    <p id="instructions"></p>
-
-    <div class="game-board">
-        <canvas id="board" width="600px" height="450px">
-        </canvas>
+    <div class="game-container">
+        <p id="instructions"></p>
+        <div class="game-board">
+            <div class="side-info-bar">
+                <span>Row 0</span>
+                <span class="row-num">Row 1</span>
+                <span class="row-num">Row 2</span>
+                <span></span>
+                <span class="row-txt"></span>
+                <span class="row-txt">Methods</span>
+                <span class="row-txt">Arguments</span>
+            </div>
+            <canvas id="board" width="600px" height="450px">
+            </canvas>
+        </div>
     </div>
     
     <script src="./src/scripts/board.js"></script>
