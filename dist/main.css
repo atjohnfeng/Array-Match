@@ -130,3 +130,14 @@ button:hover {
   color: royalblue;
   text-decoration: underline;
 }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+.footer-image-link {
+  border-radius: 50%;
+  height: 50px;
+}
