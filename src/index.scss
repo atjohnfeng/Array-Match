@@ -1,16 +1,31 @@
 body {
     background: skyblue;
+    background-image: url('../barky.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position-y: center;
+    background-position-x: right;
 }
 
-header {
+.body {
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    margin: auto;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 header > h1 {
     font-family: 'Lobster', cursive;
-    font-size: 75px;
+    font-size: 50px;
     color: royalblue;
     text-shadow: 3px 3px lightpink;
     margin: 0px;
@@ -23,7 +38,6 @@ header {
 }
 
 #board {
-    display: absolute;
     width: 600px;
     height: 450px;
     background-color: #e0ffff;
@@ -34,6 +48,7 @@ header {
 .game-board {
     display: flex;
     justify-content: center;
+    align-content: center;
 
     .side-info-bar {
         display: flex;
@@ -131,12 +146,6 @@ button:hover {
     text-shadow: 1px 1px lightpink;
     color: royalblue;
     text-decoration: underline;
-}
-
-footer {
-    position: fixed;
-    bottom: 0;
-    right: 0;
 }
 
 .footer-image-link {

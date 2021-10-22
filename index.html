@@ -19,45 +19,47 @@
     <link rel="shortcut icon" type="image/jpg" href="./favicon.ico">
 </head>
 
-<header>
-    <h1>Array Match</h1>
-</header>
 
 <body>
     
-    <div class="game-container">
-        <ul class="nav-bar">
-            <li><button onclick="getStart()">How to Play</button></li>
-            <li><button onclick="restart()">Restart Level</button></li>
-            <li><button onclick="restartGame()">Restart Game</button></li>
-            <li><button disabled>Level Selection</button></li>
-        </ul>
-        <p id="instructions"></p>
-        <div class="game-board">
-            <div class="side-info-bar">
-                <span>Row 0</span>
-                <span class="row-num">Row 1</span>
-                <span class="row-num">Row 2</span>
-                <span></span>
-                <span class="row-txt"></span>
-                <span class="row-txt">Methods</span>
-                <span class="row-txt">Arguments</span>
+    <div class="body">
+        <header>
+            <h1>Barky's Array Match</h1>
+        </header>
+        <div class="game-container">
+            <ul class="nav-bar">
+                <li><button onclick="getStart()">How to Play</button></li>
+                <li><button onclick="restart()">Restart Level</button></li>
+                <li><button onclick="restartGame()">Restart Game</button></li>
+                <li><button disabled>Level Selection</button></li>
+            </ul>
+            <p id="instructions"></p>
+            <div class="game-board">
+                <div class="side-info-bar">
+                    <span>Row 0</span>
+                    <span class="row-num">Row 1</span>
+                    <span class="row-num">Row 2</span>
+                    <span></span>
+                    <span class="row-txt"></span>
+                    <span class="row-txt">Methods</span>
+                    <span class="row-txt">Arguments</span>
+                </div>
+                <canvas id="board" width="600px" height="450px">
+                </canvas>
             </div>
-            <canvas id="board" width="600px" height="450px">
-            </canvas>
         </div>
+        <footer>
+            <a href="https://github.com/atjohnfeng" target="_blank" rel="noopener 
+            noreferrer"><img src="./GitHub-Mark-Light-64px.png" class="footer-image-link alt="github-logo"></a>
+            <a href="https://angel.co/u/john-feng-5" target="_blank" rel="noopener noreferrer"><img src="./angellist.png" class="footer-image-link" alt="angellist-logo"></i></a>
+            <a href="https://www.linkedin.com/in/john-feng-316220215/" target="_blank" rel="noopener noreferrer
+            "><img src="./linkedin.png" class="footer-image-link alt="linkedin-logo"></a>
+        </footer>
     </div>
     
     <script src="./src/scripts/board.js"></script>
 
 </body>
 
-<footer>
-    <a href="https://github.com/atjohnfeng" target="_blank" rel="noopener 
-    noreferrer"><img src="./GitHub-Mark-Light-64px.png" class="footer-image-link alt="github-logo"></a>
-    <a href="https://angel.co/u/john-feng-5" target="_blank" rel="noopener noreferrer"><img src="./angellist.png" class="footer-image-link" alt="angellist-logo"></i></a>
-    <a href="https://www.linkedin.com/in/john-feng-316220215/" target="_blank" rel="noopener noreferrer
-    "><img src="./linkedin.png" class="footer-image-link alt="linkedin-logo"></a>
-</footer>
 
 </html>
