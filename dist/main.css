@@ -150,3 +150,9 @@ button:hover {
   border-radius: 50%;
   height: 50px;
 }
+
+html {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
