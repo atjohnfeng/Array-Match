@@ -111,7 +111,7 @@ function selectCard(card) {
 }
 
 function animateSelected(card) {
-    board.strokeStyle = "black";
+    board.strokeStyle = "lightpink";
     board.strokeRect(card.rectangle.x-1, card.rectangle.y-1,
         card.rectangle.width+2, card.rectangle.height+2);
 }
