@@ -37,6 +37,7 @@ header > h1 {
   color: royalblue;
   text-shadow: 3px 3px lightpink;
   margin: 0px;
+  margin-bottom: 10px;
 }
 
 header {
