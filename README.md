@@ -1,6 +1,6 @@
-[ArrayMatch is live here!](https://atjohnfeng.github.io/Array-match/)
+# Array Match #
 
-# Javascript Project Proposal: Array Match #
+[ArrayMatch is live here!](https://atjohnfeng.github.io/Array-match/)
 
 ## Background: ##
 
@@ -9,7 +9,7 @@ array methods. Players will manipulate a given board (2D Array) in order to
 solve puzzles by combining cards that include numbers and array methods. There 
 are two types of cards which a player may use:
 
-1) Method Cards (ie. slice, push, unshift, etc.)
+1) Method Cards (ie. push, unshift, etc.)
 2) Argument Cards (ie. 1, 2, 3, etc.)
 
 By combining method and argument cards, a player will be able to manipulate the 
@@ -25,11 +25,10 @@ In **Array Match**, players will be able to:
 1) Revisit any game level previously completed.
 2) Restart any level in which the player made a mistake.
 3) Combine method and argument cards to manipulate the board and solve puzzles.
-4) Receive a score based on how quickly they completed the level.
 
 In addition, this project will include:
 
-1) An instructions guide on how to play the game..
+1) An instructions guide on how to play the game.
 2) A production README.
 
 ## Wireframes ##
@@ -61,6 +60,4 @@ Squash bugs.
 ## Bonus Features ##
 
 * Additional bonus levels.
-* Display options that change board and card design.
-* Randomly generated levels.
 * Additional animations and sound effects.
