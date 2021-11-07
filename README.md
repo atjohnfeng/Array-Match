@@ -22,9 +22,10 @@ and complicated layer to later levels.
 
 In **Array Match**, players will be able to:
 
-1) Revisit any game level previously completed.
+1) Combine method and argument cards to manipulate the board and solve puzzles.
 2) Restart any level in which the player made a mistake.
-3) Combine method and argument cards to manipulate the board and solve puzzles.
+3) Select any level.
+4) View instructions for cards.
 
 In addition, this project will include:
 
