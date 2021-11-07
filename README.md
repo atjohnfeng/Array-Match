@@ -23,7 +23,24 @@ and complicated layer to later levels.
 In **Array Match**, players will be able to:
 
 1) Combine method and argument cards to manipulate the board and solve puzzles.  
-![Cards](/level.gif)  
+![Cards](/level.gif)
+
+By adding an event listener to the canvas object, the user can select cards based on mouse position upon click by checking whether the mouse position is within a card's coordinates.  
+```
+canvas.addEventListener('click', function (event) {
+    let pos = grabMousePosition(canvas, event);
+    cards.paramCards.forEach((card) => {
+        if (isInCard(pos, card)) {
+            selectCard(card);
+        }
+    });
+    cards.funcCards.forEach((card) => {
+        if (isInCard(pos, card)) {
+            selectCard(card);
+        }
+    });
+}, false);
+```
 
 2) Restart any level in which the player made a mistake.  
 ![Restart](/restart.gif)  
@@ -36,7 +53,7 @@ In **Array Match**, players will be able to:
 
 5) Keep their current level upon closing the browser, or refreshing the page.  
 
-By utilizing a localStorage, progress is saved as a key in the browser so the user may pick back up at any level they left off upon leaving the page or refreshing the browser.
+By utilizing Window.localStorage, progress is saved as a key in the browser so the user may pick back up at any level they left off upon leaving the page or refreshing the browser.
 ```
 function getCurrentLevel() {
     switch (localStorage['currentLevel']) {
