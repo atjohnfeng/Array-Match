@@ -108,9 +108,19 @@ var levels = {
         handParams: [0, 0, 0, 1, 2, 3, 3],
         solution: [[9, 0, 0], [], []]
     },
-    
+
     eleven: {
-            instructions: `Level Eleven: Manipulate the array to match the solution:
+        instructions: `Level Eleven: Manipulate the array to match the 
+        solution: [0, 1, 3, 8].`,
+        boardArr: [[9], [], []],
+        handFuncs: [FUNCTIONS.sub, FUNCTIONS.sub, FUNCTIONS.push, FUNCTIONS.push,
+        FUNCTIONS.unshift, FUNCTIONS.unshift, FUNCTIONS.pop],
+        handParams: [0, 0, 0, 0, 0, 0, 1, 1, 4, 7],
+        solution: [[0, 1, 3, 8], [], []]
+    },
+    
+    twelve: {
+            instructions: `Level Twelve: Manipulate the array to match the solution:
             [], [], []`,
             boardArr: [[1], [1], [3]],
             handFuncs: [FUNCTIONS.sub, FUNCTIONS.sub, FUNCTIONS.mult, FUNCTIONS.pop, FUNCTIONS.pop, FUNCTIONS.pop],
@@ -118,8 +128,8 @@ var levels = {
             solution: [[], [], []]
     },
 
-    twelve: {
-        instructions: `Level Twelve: Manipulate the array to match the solution: 
+    thirteen: {
+        instructions: `Level Thirteen: Manipulate the array to match the solution: 
         [1, 2, 3, 4, 5], [] ,[5]`,
         boardArr: [[1, 2, 3], [2], [5, 3, 2]],
         handFuncs: [FUNCTIONS.sort, FUNCTIONS.sub, FUNCTIONS.mult, FUNCTIONS.sub, FUNCTIONS.shift, FUNCTIONS.shift, FUNCTIONS.shift, FUNCTIONS.push, FUNCTIONS.push],
@@ -127,23 +137,13 @@ var levels = {
         solution: [[1, 2, 3, 4, 5], [], [5]]
     },
     
-    thirteen: {
-        instructions: `Level Thirteen: Manipulate the array to match the 
+    fourteen: {
+        instructions: `Level Fourteen: Manipulate the array to match the 
         solution: [1, 3, 4, 6, 7, 9, 8].`,
         boardArr: [[7, 4, 3, 6], [9], [1]], //missing 1, 2, 5
         handFuncs: [FUNCTIONS.sort, FUNCTIONS.pop, FUNCTIONS.shift, FUNCTIONS.push, FUNCTIONS.push, FUNCTIONS.push, FUNCTIONS.mult],
         handParams: [0, 0, 0, 0, 1, 2, 2, 4], // 9 1
         solution: [[1, 3, 4, 6, 7, 9, 8], [], []]
-    },
-        
-    fourteen: {
-        instructions: `Level Fourteen: Manipulate the array to match the 
-        solution: [0, 1, 3, 8].`,
-        boardArr: [[9], [], []],
-        handFuncs: [FUNCTIONS.sub, FUNCTIONS.sub, FUNCTIONS.push, FUNCTIONS.push,
-        FUNCTIONS.unshift, FUNCTIONS.unshift, FUNCTIONS.pop],
-        handParams: [0, 0, 0, 0, 0, 0, 1, 1, 4, 7],
-        solution: [[0, 1, 3, 8], [], []]
     },
 
     fifteen: {
