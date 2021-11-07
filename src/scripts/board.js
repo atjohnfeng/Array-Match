@@ -141,12 +141,18 @@ function submitMove() {
             switch(selectedFunc.value) {
                 case FUNCTIONS.shift:
                     let shifted = problemArr[selectedArr.value].shift();
+                    if (!shifted) {
+                        return;
+                    }
                     handParams.push(shifted);
                     removeResetFill('x');
                     break;
 
                 case FUNCTIONS.pop:
                     let popped = problemArr[selectedArr.value].pop();
+                    if (!popped) {
+                        return;
+                    }
                     handParams.push(popped);
                     removeResetFill('x');
                     break;

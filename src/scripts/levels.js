@@ -1,7 +1,8 @@
 var levels = {
 
     start: {
-        instructions: `Press Start when ready. For Instructions, click 'How to Play' or select a level with 'Level Selection'!`,
+        instructions: `Press Start when ready or select a level.<br /> 
+            Instructions will appear here.`,
         boardArr: [[]],
         handFuncs: [FUNCTIONS.start],
         handParams: [],

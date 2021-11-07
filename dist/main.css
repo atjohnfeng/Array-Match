@@ -97,7 +97,7 @@ header {
   text-shadow: 1px 1px royalblue;
   margin: 0px;
   width: 100%;
-  max-width: 600px;
+  max-width: 610px;
   height: 100%;
   padding-bottom: 5px;
   border-radius: 16px;
@@ -181,13 +181,15 @@ html {
   font-family: "Lobster", cursive;
   color: white;
   border-radius: 4px;
-  border: 2px solid royalblue;
+  border: 2px solid white;
 }
 .level-selection:hover .levels-to-select li {
   padding: 5px;
-  margin: 2px;
+  width: 15px;
+  margin: 4px;
   background-color: lightpink;
-  border: 2px solid royalblue;
+  border: 2px solid white;
+  border-radius: 4px;
 }
 .level-selection:hover .levels-to-select li:hover {
   background-color: royalblue;
