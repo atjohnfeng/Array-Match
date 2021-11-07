@@ -60,6 +60,7 @@ function getCurrentLevel() {
         case 'tutorial':
             return levels.tutorial;
     }
+}
 ```
 
 In addition, this project will include:
