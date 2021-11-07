@@ -185,7 +185,6 @@ function submitMove() {
 
             case FUNCTIONS.mod:
                 let mod = selectedArr.value % selectedParams.value;
-                console.log(mod);
                 handParams.push(mod);
                 removeResetFill('y');
             break;
