@@ -110,7 +110,7 @@ var levels = {
     // },
 
     last: {
-        instructions: `Congratulations on completing ArrayMatch!`,
+        instructions: `You did it! Barky knows all about arrays now!`,
         boardArr: [],
         handFuncs: [],
         handParams: ['C', 'O', 'N', 'G', 'R', 'A', 'T', 'S'],

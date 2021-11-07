@@ -124,13 +124,14 @@ function animateSelected(card) {
 
 function submitMove() {
     if (selectedFunc !== null && selectedFunc.value === FUNCTIONS.start) {
-        if (localStorage['currentLevel'] === 'start') {
+        if (!!localStorage['currentLevel']) {
             currentLvl = levels.tutorial;
             restart();
-        } else {
-            currentLvl = getCurrentLevel();
-            restart();
-        }
+        } 
+        //     else {
+        //     currentLvl = getCurrentLevel();
+        //     restart();
+        // }
     } 
 
     let twoFuncs = [FUNCTIONS.shift, FUNCTIONS.pop, FUNCTIONS.sort];
@@ -269,25 +270,27 @@ function fillBoard(problemArr) {
     if (currentLvl === levels.start) {
         board.fillStyle = 'darkblue';
         board.font = '16px Arial';
-        board.fillText(`Welcome to Array Match! Each level will require you to manipulate an array using METHOD and NUMBER cards.`, 3, 15, 590);
-        board.fillText(`Combine METHOD and NUMBER cards to change the board and match the provided solution.`, 3, 30, 590);
-        board.fillText(``, 3, 45, 590);
+        // board.fillText(`Welcome to Array Match! Each level will require you to manipulate an array using METHOD and NUMBER cards.`, 3, 15, 590);
+        // board.fillText(`Combine METHOD and NUMBER cards to change the board and match the provided solution.`, 3, 30, 590);
+        board.fillText(`      Help Barky learn all about arrays! Press START in the METHOD row to play.`, 3, 55, 590);
+        // board.fillText(``, 3, 45, 590);
 
-        board.fillText(`Each row of the board represents an ARRAY. The TOP array is ROW ZERO.`, 3, 60, 590);
-        board.fillText(`The FIRST NUMBER card you select will be the ARRAY that will be affected.`, 3, 75, 590);
-        board.fillText(`The SECOND NUMBER card you select will be the ARGUMENT that will be passed into the method.`, 3, 90, 590);
+        // board.fillText(`Each row of the board represents an ARRAY. The TOP array is ROW ZERO.`, 3, 60, 590);
+        // board.fillText(`The FIRST NUMBER card you select will be the ARRAY that will be affected.`, 3, 75, 590);
+        // board.fillText(`The SECOND NUMBER card you select will be the ARGUMENT that will be passed into the method.`, 3, 90, 590);
 
-        board.fillText(`Here is an example: Say you want to add an ELEMENT of '1' to end of the FIRST ROW. You can do that`, 3, 120, 590);
-        board.fillText(`by selecting a METHOD CARD called PUSH, a NUMBER card '0' to indicate the FIRST ROW, and a NUMBER card of '1'`, 3, 135, 590);
-        board.fillText(`to PUSH 1 INTO ROW 0.`, 3, 150, 590);
+        // board.fillText(`Here is an example: Say you want to add an ELEMENT of '1' to end of the FIRST ROW. You can do that`, 3, 120, 590);
+        // board.fillText(`by selecting a METHOD CARD called PUSH, a NUMBER card '0' to indicate the FIRST ROW, and a NUMBER card of '1'`, 3, 135, 590);
+        board.fillText(`            Need help? Press 'How to Play' in the Menu to pull up instructions.`, 3, 130, 590);
+        // board.fillText(`to PUSH 1 INTO ROW 0.`, 3, 150, 590);
         
-        board.fillText(`METHOD CARDS like SORT, SHIFT, and POP only take in one number card to select the ARRAY you want to change.`, 3, 175, 590);
-        board.fillText(`SHIFT and POP also allow you to add the removed cards to your hand.`, 3, 190, 590)
+        // board.fillText(`METHOD CARDS like SORT, SHIFT, and POP only take in one number card to select the ARRAY you want to change.`, 3, 175, 590);
+        // board.fillText(`SHIFT and POP also allow you to add the removed cards to your hand.`, 3, 190, 590)
 
-        board.fillText(`MATH CARDS are METHOD cards that allow you to manipulate multiple NUMBER cards.`, 3, 215, 590);
-        board.fillText(`Select a MATH CARD like SUM and two NUMBER CARDS will combine the cards by adding them.`, 3, 230, 590);
-
-        board.fillText(`Try out all the different combinations to learn more about them! Happy solving!`, 3, 255, 590);
+        // board.fillText(`MATH CARDS are METHOD cards that allow you to manipulate multiple NUMBER cards.`, 3, 215, 590);
+        board.fillText(`                   Barky woofs you very much for checking out Array Match!`, 3, 210, 590);
+        // board.fillText(`Select a MATH CARD like SUM and two NUMBER CARDS will combine the cards by adding them.`, 3, 230, 590);
+        // board.fillText(`Try out all the different combinations to learn more about them! Happy solving!`, 3, 255, 590);
     }
     problemArr.forEach((row, idx) => {
         for (let i = 0; i < row.length; i++) {
@@ -329,9 +332,9 @@ function fillBoard(problemArr) {
 }
 
 function getCurrentLevel() {
-    if (localStorage['currentLevel'] === null) {
-        localStorage['currentLevel'] = 'start';
-    }
+    // if (localStorage['currentLevel'] === null) {
+    //     localStorage['currentLevel'] = 'start';
+    // }
     switch (localStorage['currentLevel']) {
         case 'tutorial':
             return levels.tutorial;
@@ -358,7 +361,7 @@ function getCurrentLevel() {
         case 'last':
             return levels.last;
         default:
-            return levels.tutorial;
+            return levels.start;
     }
 }
 
@@ -407,9 +410,29 @@ function nextLevel(currentLvl) {
     }
 }
 
-function getStart() {
-    currentLvl = levels.start;
-    restart();
+const modal = document.getElementById('instructions-modal');
+const button = document.getElementById('modal-button');
+const span = document.getElementsByClassName('close-button')[0];
+
+button.onclick = function() {
+    modal.style.display = "block";
+}
+
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(e) {
+    if(e.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+function selectLevel(level) {
+    localStorage['currentLevel'] = level;
+    currentLvl = getCurrentLevel();
+    instantLevel();
+    loadLevel();
 }
 
 instantLevel();

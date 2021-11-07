@@ -34,12 +34,39 @@
         <header>
             <h1>Barky's Array Match</h1>
         </header>
+        <div id="instructions-modal" class="modal">
+            <div class="instructions-modal-content">
+                <span class="close-button">&times;</span>
+                Welcome to Array Match.
+            </div>
+        </div>
         <div class="game-container">
             <ul class="nav-bar">
-                <li><button onclick="getStart()">How to Play</button></li>
+                <li><button id="modal-button">How to Play</button></li>
                 <li><button onclick="restart()">Restart Level</button></li>
                 <li><button onclick="restartGame()">Restart Game</button></li>
-                <li><button disabled>Level Selection</button></li>
+                <li class="level-selection"><button>Level Selection</button>
+                    <ul class="levels-to-select">
+                        <li onclick="selectLevel('tutorial')">
+                            0
+                        </li>
+                        <li onclick="selectLevel('one')">
+                            1
+                        </li>
+                        <li onclick="selectLevel('two')">
+                            2
+                        </li>
+                        <li onclick="selectLevel('three')">
+                            3
+                        </li>
+                        <li onclick="selectLevel('four')">
+                            4
+                        </li>
+                        <li onclick="selectLevel('five')">
+                            5
+                        </li>
+                    </ul>
+                </li>
             </ul>
             <p id="instructions"></p>
             <div class="game-board">
