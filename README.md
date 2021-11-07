@@ -37,10 +37,9 @@ In addition, this project will include:
 ![Wireframe](/wireframe.png)
 
 * Nav Links will link to Github repo and LinkedIn.
-* Players will be able to drag cards onto the board to combine and play them.
-* Players will be able to navigate through previously completed levels with
+* Players will be able click cards to select them
+* Players will be able to navigate through levels with
 Level Select.
-* A timer and score will be updated as players complete levels.
 * A player may restart a level at any time.
 
 ## Technologies, Libraries, and APIs ##
