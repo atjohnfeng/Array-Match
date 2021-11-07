@@ -194,7 +194,7 @@ html {
             text-shadow: 1px 1px royalblue;
             font-family: 'Lobster', cursive;
             color: white;
-            border-radius: 10px;
+            border-radius: 4px;
             border: 2px solid royalblue;
 
             li {
@@ -225,24 +225,33 @@ html {
     z-index: 1;
 }
 
-.instructions-modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+strong {
+    font-weight: bold;
+    font-size: 22px;
 }
 
-.close {
-    color: #aaa;
+.instructions-modal-content {
+    background-color: lightpink;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid royalblue;
+    border-radius: 10px;
+    width: 60%;
+    color: royalblue;
+    font-size: 18px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.close-button {
+    color:lightpink;
     float: right;
     font-size: 28px;
     font-weight: bold;
-}
 
-.close:hover,
-.close:focus {
-    color:black;
-    text-decoration: none;
-    cursor: pointer;
+    &:hover,
+    &:focus {
+        color:royalblue;
+        text-decoration: none;
+        cursor: pointer;
+    }
 }
