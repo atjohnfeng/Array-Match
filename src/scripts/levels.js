@@ -26,7 +26,7 @@ var levels = {
         solution: [[1, 2, 3], []]
     },
 
-    two: {
+    four: {
         instructions: `Level Two: Manipulate the array to match the solution: 
         [1,1,1], [1,1,1], [1,1,1].`,
         boardArr: [[1], [1,1,1], [1,1,1,1]],
@@ -35,7 +35,7 @@ var levels = {
         solution: [[1, 1, 1], [1, 1, 1], [1, 1, 1]]
     },
 
-    three: {
+    eight: {
         instructions: `Level Three: Manipulate the array to match the 
         solution: [1, 1, 1], [1, 2, 3], [1, 1, 1].`,
         boardArr: [[1], [3, 2, 1], [1, 1, 1, 1]],
@@ -45,7 +45,7 @@ var levels = {
         solution: [[1, 1, 1], [1, 2, 3], [1, 1, 1]]
     },
 
-    four: {
+    nine: {
         instructions: `Level Four: Manipulate the array to match the 
         solution: [1, 2, 3], [1, 2, 3], [1, 2, 5].`,
         boardArr: [[1, 2, 3], [1, 2, 3], [1, 2]],
@@ -54,7 +54,7 @@ var levels = {
         solution: [[1, 2, 3], [1, 2, 3], [1, 2, 5]]
     },
 
-    five: {
+    ten: {
         instructions: `Level Five: Manipulate the array to match the 
         solution: [0, 1, 3, 8].`,
         boardArr: [[9]],

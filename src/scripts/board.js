@@ -357,6 +357,16 @@ function getCurrentLevel() {
             return levels.nine;
         case 'ten':
             return levels.ten;
+        case 'eleven':
+            return levels.eleven;
+        case 'twelve':
+            return levels.twelve;
+        case 'thirteen':
+            return levels.thirteen;
+        case 'fourteen':
+            return levels.fourteen;
+        case 'fifteen':
+            return levels.fifteen;
         case 'last':
             return levels.last;
         default:
@@ -385,27 +395,39 @@ function nextLevel(currentLvl) {
             localStorage['currentLevel'] = 'five';
             return levels.five;
         case levels.five:
-            // localStorage['currentLevel'] = 'six';
+            localStorage['currentLevel'] = 'six';
+            return levels.six;
+        case levels.six:
+            localStorage['currentLevel'] = 'seven';
+            return levels.seven;
+        case levels.seven:
+            localStorage['currentLevel'] = 'eight';
+            return levels.eight;
+        case levels.eight:
+            localStorage['currentLevel'] = 'nine';
+            return levels.nine;
+        case levels.nine:
+            localStorage['currentLevel'] = 'ten';
+            return levels.ten;
+        case levels.ten:
+            localStorage['currentLevel'] = 'eleven';
+            return levels.eleven; 
+        case levels.eleven:
+            localStorage['currentLevel'] = 'twelve';
+            return levels.twelve; 
+        case levels.twelve:
+            localStorage['currentLevel'] = 'thirteen';
+            return levels.thirteen; 
+        case levels.thirteen:
+            localStorage['currentLevel'] = 'fourteen';
+            return levels.fourteen;
+        case levels.fourteen:
+            localStorage['currentLevel'] = 'fifteen';
+            return levels.fifteen;
+        case levels.fifteen:
             localStorage['currentLevel'] = 'last';
-            alert(`You've completed all levels!`);
+            alert(`You've completed the final level!`);
             return levels.last;
-            // return levels.six;
-        // case levels.six:
-        //     localStorage['currentLevel'] = 'seven';
-        //     return levels.seven;
-        // case levels.seven:
-        //     localStorage['currentLevel'] = 'eight';
-        //     return levels.eight;
-        // case levels.eight:
-        //     localStorage['currentLevel'] = 'nine';
-        //     return levels.nine;
-        // case levels.nine:
-        //     localStorage['currentLevel'] = 'ten';
-        //     return levels.ten;
-        // case levels.ten:
-        //     localStorage['currentLevel'] = 'ten';
-        //     alert(`You've completed all levels!`)
-        //     return levels.last;
     }
 }
 
