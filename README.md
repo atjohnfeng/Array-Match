@@ -22,11 +22,28 @@ and complicated layer to later levels.
 
 In **Array Match**, players will be able to:
 
-1) Combine method and argument cards to manipulate the board and solve puzzles.
-2) Restart any level in which the player made a mistake.
-3) Select any level.
-4) View instructions for cards.
-5) Keep their progress upon closing the browser.
+1) Combine method and argument cards to manipulate the board and solve puzzles.  
+![Cards](/level.gif)  
+
+2) Restart any level in which the player made a mistake.  
+![Restart](/restart.gif)  
+
+3) Select any level.  
+![Level Select](/levelselect.gif)  
+
+4) View instructions for cards.  
+![Instructions](/instructions.gif)  
+
+5) Keep their current level upon closing the browser, or refreshing the page.  
+
+By utilizing a localStorage, progress is saved as a key in the browser so the user may pick back up at any level they left off upon leaving the page or refreshing the browser.
+```
+function getCurrentLevel() {
+    switch (localStorage['currentLevel']) {
+        case 'tutorial':
+            return levels.tutorial;
+    }
+```
 
 In addition, this project will include:
 
