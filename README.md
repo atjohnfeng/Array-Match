@@ -26,6 +26,7 @@ In **Array Match**, players will be able to:
 2) Restart any level in which the player made a mistake.
 3) Select any level.
 4) View instructions for cards.
+5) Keep their progress upon closing the browser.
 
 In addition, this project will include:
 

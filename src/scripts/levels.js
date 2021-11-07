@@ -109,12 +109,12 @@ var levels = {
     },
     
     eleven: {
-            // instructions: `Level Eleven: Manipulate the array to match the solution:
-            // [5, 3, 1], [1, 3, 5], [3, 1, 5]`,
-            // boardArr: [[1, 2, 3], [5, 3, 1], [1, 0, 5]],
-            // handFuncs: [FUNCTIONS.pop, FUNCTIONS.pop, FUNCTIONS.shift, FUNCTIONS.unshift, FUNCTIONS.unshift, FUNCTIONS.sort, FUNCTIONS.sort, FUNCTIONS.sum],
-            // handParams: [0, 0, 0, 0, 1, 2, 2, 3, 3],
-            // solution: [[5, 3, 1], [1, 3, 5], [3, 1, 5]]
+            instructions: `Level Eleven: Manipulate the array to match the solution:
+            [], [], []`,
+            boardArr: [[1], [1], [3]],
+            handFuncs: [FUNCTIONS.sub, FUNCTIONS.sub, FUNCTIONS.mult, FUNCTIONS.pop, FUNCTIONS.pop, FUNCTIONS.pop],
+            handParams: [0, 1, 1, 1, -2],
+            solution: [[], [], []]
     },
 
     twelve: {
