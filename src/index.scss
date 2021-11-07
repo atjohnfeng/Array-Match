@@ -231,7 +231,7 @@ strong {
 }
 
 .instructions-modal-content {
-    background-color: lightpink;
+    background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid royalblue;
@@ -254,4 +254,30 @@ strong {
         text-decoration: none;
         cursor: pointer;
     }
+}
+
+.card-list {
+    display: flex;
+    justify-content: center;
+
+    li {
+        text-decoration: none;
+        padding: 20px;
+        color: royalblue;
+        background-color: lightblue;
+        border: 2px solid #fefefe;
+        font-family: 'Lobster', cursive;
+        cursor: pointer;
+
+        &:hover {
+            color: white;
+            background-color: royalblue;
+        }
+    }
+}
+
+#shift, #unshift, #push, #pop, #sort, #sub, #sum, #mod, #mult {
+    display: none;
+    padding: 20px;
+    border: 2px solid royalblue;
 }

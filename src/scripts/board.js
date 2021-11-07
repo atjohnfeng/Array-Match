@@ -434,5 +434,19 @@ function selectLevel(level) {
     loadLevel();
 }
 
+function renderCardInfo(card) {
+    let x = document.getElementById(card);
+    let cards = document.getElementsByClassName('info');
+    for (let i = 0; i < 9; i++) {
+        cards[i].style.display = "none";
+    }
+
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
 instantLevel();
 loadLevel();

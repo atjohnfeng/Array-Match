@@ -38,51 +38,55 @@
             <div class="instructions-modal-content">
                 <span class="close-button">&times;</span>
                 <strong>Welcome to Array Match!</strong> <br /><br />
-                Barky just started programming classes and needs your help learning all about arrays. <br />
-                Combine METHOD and ARGUMENT cards to change the board and match the provided solution. <br />
-                Each row of the board represents an ARRAY.<br />
+                Barky just started programming classes and needs your help learning all about arrays. <br /><br />
+                Combine METHOD and ARGUMENT cards to change the board and match the provided solution. <br /><br />
+                Each row of the board represents an ARRAY.<br /><br />
                 Combine up one method card, and up to two argument cards to manipulate the board.<br /><br />
+                Reached a dead-end? Just press 'Restart Level' on the menu bar above!<br /><br />
                 Click below to learn more about each method card!<br /><br />
-                <ul className="card-list">
-                    <a href="#shift">
-                        <li>
-                            Shift
-                        </li>
-                    </a>
-                    <a href="#unshift">
-                        <li>
-                            Unshift
-                        </li>
-                    </a><a href="#pop">
-                        <li>
-                            Pop
-                        </li>
-                    </a><a href="#push">
-                        <li>
-                            Push
-                        </li>
-                    </a><a href="#sort">
-                        <li>
-                            Sort
-                        </li>
-                    </a><a href="#sum">
-                        <li>
-                            Sum
-                        </li>
-                    </a><a href="#sub">
-                        <li>
-                            Sub
-                        </li>
-                    </a><a href="#mod">
-                        <li>
-                            Mod
-                        </li>
-                    </a><a href="#mult">
-                        <li>
-                            Mult
-                        </li>
-                    </a>
-                </ul>
+                <ul class="card-list">
+                    <li onclick="renderCardInfo('shift')">
+                        Shift
+                    </li>
+                    <li onclick="renderCardInfo('unshift')">
+                        Unshift
+                    </li>
+                    <li onclick="renderCardInfo('pop')">
+                        Pop
+                    </li>
+                    <li onclick="renderCardInfo('push')">
+                        Push
+                    </li>
+                    <li onclick="renderCardInfo('sort')">
+                        Sort
+                    </li>
+                    <li onclick="renderCardInfo('sum')">
+                        Sum
+                    </li>
+                    <li onclick="renderCardInfo('sub')">
+                        Sub
+                    </li>
+                    <li onclick="renderCardInfo('mod')">
+                        Mod
+                    </li>
+                    <li onclick="renderCardInfo('mult')">
+                        Mult
+                    </li>
+                </ul><br />
+                <p id="card-info">
+                    <span id="shift" class="info">
+                        Shift<br /><br />
+                        Shift takes 
+                    </span>
+                    <span id="unshift" class="info">Unshift</span>
+                    <span id="pop" class="info">Pop</span>
+                    <span id="push" class="info">Push</span>
+                    <span id="sort" class="info">Sort</span>
+                    <span id="sum" class="info">Sum</span>
+                    <span id="sub" class="info">Subtract</span>
+                    <span id="mod" class="info">Modulo</span>
+                    <span id="mult" class="info">Mult</span>
+                </p>
             </div>
         </div>
         <div class="game-container">
