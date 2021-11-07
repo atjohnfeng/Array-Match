@@ -107,62 +107,53 @@ var levels = {
         handParams: [0, 0, 0, 1, 2, 3, 3],
         solution: [[9, 0, 0], [], []]
     },
-
-    twelve: {
-        instructions: `Level Twelve: Manipulate the array to match the 
-        solution: [0, 1, 3, 8].`,
-        boardArr: [[9]],
-        handFuncs: [FUNCTIONS.sub, FUNCTIONS.sub, FUNCTIONS.push, FUNCTIONS.push, 
-            FUNCTIONS.unshift, FUNCTIONS.unshift, FUNCTIONS.pop],
-        handParams: [0, 0, 0, 0, 0, 0, 1, 1, 4, 7],
-        solution: [[0, 1, 3, 8]]
+    
+    eleven: {
+            // instructions: `Level Eleven: Manipulate the array to match the solution:
+            // [5, 3, 1], [1, 3, 5], [3, 1, 5]`,
+            // boardArr: [[1, 2, 3], [5, 3, 1], [1, 0, 5]],
+            // handFuncs: [FUNCTIONS.pop, FUNCTIONS.pop, FUNCTIONS.shift, FUNCTIONS.unshift, FUNCTIONS.unshift, FUNCTIONS.sort, FUNCTIONS.sort, FUNCTIONS.sum],
+            // handParams: [0, 0, 0, 0, 1, 2, 2, 3, 3],
+            // solution: [[5, 3, 1], [1, 3, 5], [3, 1, 5]]
     },
 
-    // six: {
-    //     instructions: `Level 0/10: Manipulate the array to match the solution: 
-    //     [1,1,1].`,
-    //     boardArr: [[1, 1], []],
-    //     handFuncs: [FUNCTIONS.push],
-    //     handParams: [1, 0],
-    //     solution: [[1, 1, 1], []]
-    // },
+    twelve: {
+        instructions: `Level Twelve: Manipulate the array to match the solution: 
+        [1, 2, 3, 4, 5], [] ,[5]`,
+        boardArr: [[1, 2, 3], [2], [5, 3, 2]],
+        handFuncs: [FUNCTIONS.sort, FUNCTIONS.sub, FUNCTIONS.mult, FUNCTIONS.sub, FUNCTIONS.shift, FUNCTIONS.shift, FUNCTIONS.shift, FUNCTIONS.push, FUNCTIONS.push],
+        handParams: [-5, 0, 0, 1, 2, 2, 3, 7],
+        solution: [[1, 2, 3, 4, 5], [], [5]]
+    },
+    
+    thirteen: {
+        instructions: `Level Thirteen: Manipulate the array to match the 
+        solution: [1, 3, 4, 6, 7, 9, 8].`,
+        boardArr: [[7, 4, 3, 6], [9], [1]], //missing 1, 2, 5
+        handFuncs: [FUNCTIONS.sort, FUNCTIONS.pop, FUNCTIONS.shift, FUNCTIONS.push, FUNCTIONS.push, FUNCTIONS.push, FUNCTIONS.mult],
+        handParams: [0, 0, 0, 0, 1, 2, 2, 4], // 9 1
+        solution: [[1, 3, 4, 6, 7, 9, 8], [], []]
+    },
+        
+    fourteen: {
+        instructions: `Level Fourteen: Manipulate the array to match the 
+        solution: [0, 1, 3, 8].`,
+        boardArr: [[9], [], []],
+        handFuncs: [FUNCTIONS.sub, FUNCTIONS.sub, FUNCTIONS.push, FUNCTIONS.push,
+        FUNCTIONS.unshift, FUNCTIONS.unshift, FUNCTIONS.pop],
+        handParams: [0, 0, 0, 0, 0, 0, 1, 1, 4, 7],
+        solution: [[0, 1, 3, 8], [], []]
+    },
 
-    // seven: {
-    //     instructions: `Level 0/10: Manipulate the array to match the solution: 
-    //     [1,1,1].`,
-    //     boardArr: [[1, 1], []],
-    //     handFuncs: [FUNCTIONS.push],
-    //     handParams: [1, 0],
-    //     solution: [[1, 1, 1], []]
-    // },
-
-    // eight: {
-    //     instructions: `Level 0/10: Manipulate the array to match the solution: 
-    //     [1,1,1].`,
-    //     boardArr: [[1, 1], []],
-    //     handFuncs: [FUNCTIONS.push],
-    //     handParams: [1, 0],
-    //     solution: [[1, 1, 1], []]
-    // },
-
-    // nine: {
-    //     instructions: `Level 0/10: Manipulate the array to match the solution: 
-    //     [1,1,1].`,
-    //     boardArr: [[1, 1], []],
-    //     handFuncs: [FUNCTIONS.push],
-    //     handParams: [1, 0],
-    //     solution: [[1, 1, 1], []]
-    // },
-
-    // ten: {
-    //     instructions: `Level 0/10: Manipulate the array to match the solution: 
-    //     [1,1,1].`,
-    //     boardArr: [[1, 1], []],
-    //     handFuncs: [FUNCTIONS.push],
-    //     handParams: [1, 0],
-    //     solution: [[1, 1, 1], []]
-    // },
-
+    fifteen: {
+        instructions: `Level Fifteen: Manipulate the array to match the solution: 
+        [5, 3, 1], [1, 3, 5], [3, 1, 5]`,
+        boardArr: [[1, 2, 3], [5, 3, 1], [1, 0, 5]],
+        handFuncs: [FUNCTIONS.pop, FUNCTIONS.pop, FUNCTIONS.shift, FUNCTIONS.unshift, FUNCTIONS.unshift, FUNCTIONS.unshift, FUNCTIONS.sort, FUNCTIONS.sort, FUNCTIONS.sum],
+        handParams: [0, 0, 0, 1, 2, 2, 2, 3, 3],
+        solution: [[5, 3, 1], [1, 3, 5], [3, 1, 5]]
+    },
+    
     last: {
         instructions: `You did it! Barky knows all about arrays now!`,
         boardArr: [],
