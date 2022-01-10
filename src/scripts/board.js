@@ -105,9 +105,10 @@ function selectCard(card) {
     }
     submitMove();
     fillBoard(problemArr);
-    setTimeout(function () {
-        winOrNot();
-    }, 2000);
+    winOrNot();
+    // setTimeout(function () {
+    //     winOrNot();
+    // }, 2000);
 }
 
 function animateSelected(card) {
@@ -241,7 +242,9 @@ function removeCardsForShiftPop() {
 function winOrNot() {
     if (JSON.stringify(problemArr) === JSON.stringify(currentLvl.solution)) {
         completedLevels.concat(currentLvl);
-        resetParams();
+        setTimeout(() => {
+            resetParams();
+        }, 2000)
     }
 }
 
