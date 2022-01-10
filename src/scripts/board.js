@@ -244,7 +244,7 @@ function winOrNot() {
         completedLevels.concat(currentLvl);
         setTimeout(() => {
             resetParams();
-        }, 2000)
+        }, 1000)
     }
 }
 
